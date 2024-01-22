@@ -41,6 +41,9 @@ class Departamentos extends Table{
         );
         return $rowsDeleted;
     }
+
+
+    
     public static function findAll(){
         $sqlstr = "SELECT * from departamentos;";
         return self::obtenerRegistros($sqlstr, array());
