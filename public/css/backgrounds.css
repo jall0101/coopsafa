@@ -1,0 +1,224 @@
+@import url("colors.css");
+
+.bg-cafe {
+    background-color: var(--cafe);
+}
+
+.bg-cafe2:hover {
+    color: var(--blanco);
+    background-color: var(--cafe);
+}
+
+
+.tb-padding {
+    padding: 20px;
+}
+
+.txt-blanco {
+    -webkit-text-stroke: 1px;
+    color: var(--blanco);
+
+}
+
+.txt-cafe{
+    color: #744303;
+    text-decoration: none;
+}
+
+.txt-cafe:hover{
+    color: #aa6204;
+    text-decoration:underline;
+}
+
+.txt-verde{
+    color: #198800;
+    text-decoration: none;
+}
+
+.txt-verde:hover{
+    color: #198800;
+    text-decoration:underline;
+}
+
+.txt-blanco:hover {
+    color: var(--blanco);
+}
+
+.bg-cafe:hover {
+    background-color: var(--cafe);
+    color: var(--blanco);
+}
+
+.txt-rojo {
+    color: var(--rojo);
+    -webkit-text-stroke: 1px;
+}
+
+.btn-radio {
+    border-radius: none;
+}
+
+.txt-negro {
+    color: var(--negro);
+    -webkit-text-stroke: 1.5px;
+    font-size: 30px;
+}
+
+.txt-negro2 {
+    color: var(--negro);
+    font-size: 20px;
+}
+
+
+.bg-gris_claro2 {
+    background-color: var(--gris_claro2);
+}
+
+.bg-gris_claro {
+    background-color: var(--gris_claro);
+}
+
+.bg-gris_oscuro {
+    background-color: var(--gris_oscuro);
+}
+
+.lineas {
+    border: 1px solid var(--blanco);
+}
+
+
+.tb-align {
+    vertical-align: middle;
+}
+
+.bg-negro {
+    background-color: var(--negro);
+}
+
+/*MENU cliente*/
+.menuItem2:hover {
+    background-color: var(--verde);
+    border-radius: 2px;
+
+}
+
+.menuItem {
+
+    position: relative;
+    transition: .5s ease;
+}
+
+.menuItem::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 2px;
+    width: 0;
+    background-color: var(--verde);
+    transition: .5s ease;
+}
+
+.menuItem:hover {
+    color: #1e1e2b;
+    transition-delay: .5s;
+}
+
+.menuItem:hover::before {
+    width: 100%;
+}
+
+.menuItem::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 0;
+    width: 100%;
+    background-color: var(--verde);
+    transition: .4s ease;
+    z-index: -1;
+}
+
+.menuItem:hover::after {
+    height: 100%;
+    transition-delay: 0.4s;
+    color: aliceblue;
+}
+
+/*MENU Administrador*/
+
+.menuAdmin {
+    
+    border-radius: 50px;
+    border: 0;    
+    box-shadow: rgba(171, 201, 50, 0.05) 0 0 8px;    
+    transition: all .5s ease;
+}
+
+.menuAdmin:hover {
+    letter-spacing: 3px;
+    background-color: #198800;
+    color: hsl(0, 0%, 100%);
+    box-shadow: #198800 0px 7px 29px 0px;
+}
+
+.menuAdmin:active {
+    letter-spacing: 3px;
+    background-color: #198800;
+    color: hsl(0, 0%, 100%);
+    box-shadow: #198800 0px 0px 0px 0px;
+    transform: translateY(10px);
+    transition: 100ms;
+}
+
+.menuAdmin2:hover{
+    background-color: var(--verde);
+    border-radius: 10px;
+}
+
+/*
+* BANNER DE COOPERATIVA INICIO
+*/
+.banner {
+    background: linear-gradient(90deg, rgba(0,0,0,1) 10%, rgba(0,0,0,0.49343487394957986) 55%, rgba(0,0,0,0) 100%), url(../imgs/inicio/bannerCoopsafa.png);    
+    background-repeat: no-repeat;
+    background-size: cover;    
+    background-position: center;
+    height: 500px;
+    padding-top: 250px;
+    padding-bottom: 150px;
+}
+
+
+.banner-btn {
+    margin-bottom: 20px;
+}
+
+/*BOTONES MENU*/
+
+.button-index {
+    background-color: white;
+    color: black;
+   
+    font-size: 17px;
+    font-weight: 600;
+    text-align: center;
+    padding: 1em 2em;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    text-decoration: none;
+    border: 1px solid black;
+    box-shadow: 0 0 0 0 black;
+  }
+  
+  .button-index:hover {
+    transform: translateY(-4px) translateX(-2px);
+    box-shadow: 2px 5px 0 0 var(--verde);
+  };
+  
+  .button-index:active {
+    transform: translateY(2px) translateX(1px);
+    box-shadow: 0 0 0 0 var(--verde);
+  };
+

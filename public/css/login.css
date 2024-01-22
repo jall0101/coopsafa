@@ -1,0 +1,78 @@
+body {font-family: Arial, Helvetica, sans-serif;}
+* {box-sizing: border-box}
+
+.formulario{
+    width: 40%;
+    margin-top: -2%;
+    margin-bottom: 5%;
+    margin-left: 30%;
+    justify-content: center;
+    align-items: center;
+    border: none;
+}
+.contenedor {
+    align-items: center;
+    padding: 16px;
+}
+  
+
+/* Full-width input fields */
+input[type=text] {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  background: #eeeeee;
+}
+
+input[type=password] {
+    width: 100%;
+    padding: 15px;
+    margin: 5px 0 22px 0;
+    display: inline-block;
+    border: none;
+    background: #eeeeee;
+}
+
+input[type=text]:focus, input[type=password]:focus {
+    background-color: #25b90069;
+    outline: none;
+}
+
+.botones{
+  background-color: #198800;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+}
+  
+
+
+/*BOTÓN CREAR CUENTA*/
+.iniciar {
+    padding: 14px 20px;
+    background-color: #198800;
+    color: white;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    opacity: 0.9;
+  }
+
+.iniciar:hover {
+    opacity:6;
+}
+
+.iniciar {
+  float: center;
+  width: 100%;
+}
+
+/* Change styles for cancel button and signup button on extra small screens */
+@media screen and (max-width: 300px) {
+  .cancelbtn, .signupbtn {
+     width: 100%;
+  }
+}
