@@ -35,6 +35,7 @@
           class="d-inline-block align-text-middle">
         Cooperativa Sagrada Familia
       </a>
+      
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -48,6 +49,7 @@
         <ul class="navbar-nav mx-3"> 
           <!--ESTO ES PARA EL ICONO DE INICIO DE SESIÓN-->        
           <li class="nav-item mx-4 menuItem2">
+          
             <a class="nav-link active" style="color:var(--blanco)" href="index.php?page=sec_login"><i class="fa-regular fa-user fa-lg" style="color: #ffffff;"></i></a>
           </li>          
         </ul>
@@ -73,9 +75,9 @@
              JALL | todos los derechos reservados 2023 &copy;
             </div>
             <div class="col-6 text-end">
-              <a class="mx-3" href="https://www.twitter.com/"><i class="fa-brands fa-twitter fa-2xl" style="color: #ffffff;"></i></a>
-              <a class="mx-3" href="https://www.facebook.com/"><i class="fa-brands fa-facebook fa-2xl" style="color: #ffffff;"></i></a>
-              <a class="mx-3" href="https://www.instagram.com/"><i class="fa-brands fa-instagram fa-2xl" style="color: #ffffff;"></i></a>
+              <a class="mx-3" href="https://www.youtube.com/@coop.sagradafamiliahondura5496"><i class="fa-brands fa-youtube fa-2xl" style="color: #198800;"></i></a>
+              <a class="mx-3" href="https://www.filialelectronica.hn/"><i class="fa-solid fa-desktop fa-2xl" style="color: #198800;"></i></a>
+              <a class="mx-3" href="https://www.instagram.com/"><i class="fa-brands fa-instagram fa-2xl" style="color: #198800;"></i></a>
             </div>
           </div>
       </div>

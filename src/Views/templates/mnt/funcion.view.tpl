@@ -28,8 +28,8 @@
     <section class="row mb-3 bg-gris_claro2 p-3 rounded">
       <label for="fntyp" class="col-4 form-label">Tipo</label>
       <select id="fntyp" class="form-select" name="fntyp" {{if readonly}}disabled{{endif readonly}}>
-        <option value="CTR" {{fntyp_CTR}}>CTR </option>
-        <option value="PGN" {{fntyp_PGN}}>PGN </option>
+        <option value="CTR" {{fntyp_CTR}}>CTR</option>
+        <option value="PGN" {{fntyp_PGN}}>PGN</option>
       </select>
     </section>
     {{if has_errors}}

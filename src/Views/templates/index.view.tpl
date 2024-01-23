@@ -16,11 +16,12 @@
   
     <!--BANNER DE LA PÁGINA PRINCIPAL-->
     <div class="container-fluid banner">
-        <div class="row justify-content-start">
-            <a href="index.php?page=sec_login" class="text-dark m-4 button-index col-2">INICIAR SESIÓN</a>
-        </div>
     </div>
     <hr>
+    <br>
+    <div class="row justify-content-center">
+        <a href="index.php?page=sec_login" class="text-dark m-4 button-index col-2">INICIAR SESIÓN</a>
+    </div>
 
 </body>
 

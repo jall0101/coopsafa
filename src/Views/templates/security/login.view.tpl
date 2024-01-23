@@ -27,7 +27,7 @@
       {{generalError}}
     </div>
     {{endif generalError}}
-    <p>Creado por JALL©.<a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p>
+    <p>Creado por JALL©.</p>
 
     <div class="botones">
       <button id="btnLogin" type="submit" class="iniciar">Iniciar Sesión</button>

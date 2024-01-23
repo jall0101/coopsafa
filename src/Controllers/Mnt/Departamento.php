@@ -56,6 +56,9 @@ class Departamento extends PrivateController{
     {
         if(isset($_GET['mode'])){
             if(isset($this->modes[$_GET['mode']])){
+                if (!$this->isFeatureAutorized($this->modesAuth[$_GET['mode']])) {
+                    throw new Exception("Mode is not Authorized!");
+                }
                 $this->viewData["mode"] = $_GET['mode'];
             } else {
                 throw new Exception("Mode Not available");
@@ -126,7 +129,7 @@ class Departamento extends PrivateController{
                 if($inserted > 0){
                     \Utilities\Site::redirectToWithMsg(
                         $this->redirectTo,
-                        "Departamento Creada Exitosamente"
+                        "Departamento Creado Exitosamente"
                     );
                 }
                 break;
@@ -138,7 +141,7 @@ class Departamento extends PrivateController{
                 if($updated > 0){
                     \Utilities\Site::redirectToWithMsg(
                         $this->redirectTo,
-                        "Departamento Actualizada Exitosamente"
+                        "Departamento Actualizado Exitosamente"
                     );
                 }
                 break;
@@ -149,7 +152,7 @@ class Departamento extends PrivateController{
                 if($deleted > 0){
                     \Utilities\Site::redirectToWithMsg(
                         $this->redirectTo,
-                        "Departamento Eliminada Exitosamente"
+                        "Departamento Eliminado Exitosamente"
                     );
                 }
                 break;

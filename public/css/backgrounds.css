@@ -181,7 +181,7 @@
 * BANNER DE COOPERATIVA INICIO
 */
 .banner {
-    background: linear-gradient(90deg, rgba(0,0,0,1) 10%, rgba(0,0,0,0.49343487394957986) 55%, rgba(0,0,0,0) 100%), url(../imgs/inicio/bannerCoopsafa.png);    
+    background: linear-gradient(80deg, rgba(0,0,0,1) 0.20%, rgba(0,0,0,0.49343487394957986) 55%, rgba(0,0,0,0) 100%), url(../imgs/inicio/bannerCoopsafa.png);    
     background-repeat: no-repeat;
     background-size: cover;    
     background-position: center;
@@ -196,7 +196,6 @@
 }
 
 /*BOTONES MENU*/
-
 .button-index {
     background-color: white;
     color: black;
