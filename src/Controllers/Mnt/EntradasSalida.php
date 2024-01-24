@@ -20,11 +20,6 @@ class EntradasSalida extends PrivateController{
         "filial" => "",
         "departamento" => "", 
         "asignado" => "",
-        
-        //"fotoEquipo" => "", 
-        //"fotoEntrada" => "", 
-        //"fotoSalida" => "", 
-        //"verificarImagen"=> "",
 
         "general_errors"=> array(),
         "has_errors" =>false,
@@ -241,26 +236,6 @@ class EntradasSalida extends PrivateController{
         $this->viewData["departamento"]= $_POST["departamento"];
         $this->viewData["asignado"]= $_POST["asignado"];
 
-        /*
-
-        if($this->viewData["mode"] !== "INS"){
-            $error = $_FILES["fotoEquipo"]["error"];
-            if($error !== 0){
-                error_log("aqui-----------------------------1------------");
-                $this->viewData["fotoEquipo"] = $_POST["verificarImagen"];
-            } else{
-                error_log("aqui-----------------------------2------------");
-
-                $this->eliminarImagen($_POST["verificarImagen"]);
-                $this->ingresarImagen();
-
-            }
-        } else{
-            error_log("aqui-----------------------------3------------");
-
-           $this->ingresarImagen();
-        }
-        */
     }
 
 
@@ -278,9 +253,6 @@ class EntradasSalida extends PrivateController{
                     $this->viewData["departamento"],
                     $this->viewData["asignado"],
 
-                    //$this->viewData["fotoEquipo"],
-                    //$this->viewData["fotoEntrada"],
-                    //$this->viewData["fotoSalida"]
                 );
                 if($inserted > 0){
                     \Utilities\Site::redirectToWithMsg(
@@ -300,11 +272,7 @@ class EntradasSalida extends PrivateController{
                     $this->viewData["filial"],
                     $this->viewData["departamento"],
                     $this->viewData["asignado"],
-
-                    //$this->viewData["fotoEquipo"],
-                    //$this->viewData["fotoEntrada"],
-                    //$this->viewData["fotoSalida"]
-                    
+ 
                 );
                 if($updated > 0){
                     \Utilities\Site::redirectToWithMsg(
@@ -314,7 +282,7 @@ class EntradasSalida extends PrivateController{
                 }
                 break;
             case "DEL":
-                //$this->eliminarImagen($this->viewData["imagenzapato"]);
+
                 $deleted = \Dao\Mnt\EntradasSalidas::delete(
                     $this->viewData["idEntradas_salidas"]
                 );
@@ -360,61 +328,6 @@ class EntradasSalida extends PrivateController{
         }
         Renderer::render("mnt/entradassalida", $this->viewData);
     }
-
-
-
-
-    /* 
-
-
-
-    private function ingresarImagen(){
-        if(isset($_FILES["fotoEquipo"])){
-            $img_name = $_FILES["fotoEquipo"]["name"];
-            $img_size = $_FILES["fotoEquipo"]["size"];
-            $tmp_name = $_FILES["fotoEquipo"]["tmp_name"];
-            $error = $_FILES["fotoEquipo"]["error"];
-
-            if($error === 0){
-                if($img_size > 300000){
-                    $this->viewData["has_errors"] = true;
-                    $this->viewData["general_errors"] = "La imagen es muy grande!";
-                } else{
-                    $img_ex = pathinfo($img_name, PATHINFO_EXTENSION);
-                    $img_ex_lc = strtolower($img_ex);
-                    $allowed_exs = array("jpg","jpeg","png","webp");
-
-                    if(in_array($img_ex_lc, $allowed_exs)){
-                        $new_img_name = uniqid("IMG-", true).'.'.$img_ex_lc;
-                        $img_upload_path = "public/imgs/uploads/".$new_img_name;
-                        move_uploaded_file($tmp_name,$img_upload_path);
-
-                        $this->viewData["fotoEquipo"] = $new_img_name;
-                    } else {
-                        $this->viewData["has_errors"] = true;
-                        $this->viewData["general_errors"] = "El formato de imagen no es permitido!";
-                    }
-                }
-
-            }else{
-                
-                throw new Exception("error en la imagen");
-            }
-        }
-    }
-
-    
-
-    private function eliminarImagen($nombre){
-        $path = "public/imgs/uploads/".$nombre;
-        unlink($path);
-    }
-    
-    
-    
-    
-    */
-
     
 }
 

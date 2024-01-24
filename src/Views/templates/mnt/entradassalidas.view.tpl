@@ -15,12 +15,6 @@
         <th scope="col">Filial</th>
         <th scope="col">Departamento</th>
         <th scope="col">Asignado</th>
-        <!--
-        <th scope="col">Foto Equipo</th>
-        <th scope="col">Foto Equipo</th>
-        <th scope="col">Foto Equipo</th>
-        
-        -->
 
         <th>
           {{if ~entradassalidas_new}}
@@ -43,11 +37,7 @@
         <td>{{filial}}</td>
         <td>{{departamento}}</td>
         <td>{{asignado}}</td>
-        <!--
-        <td><img src="public\imgs\uploads\{{fotoEquipo}}" alt="" class="img-fluid"></td>
-        <td><img src="public\imgs\uploads\{{fotoEntrada}}" alt="" class="img-fluid"></td>
-        <td><img src="public\imgs\uploads\{{fotoSalida}}" alt="" class="img-fluid"></td>
-        -->
+
 
         <td>
           {{if ~entradassalidas_edit}}

@@ -4,8 +4,6 @@ use Dao\Table;
 
 class EntradasSalidas extends Table{
     //FUNCIONES PARA EL CRUD DE ENTRADAS Y SALIDAS
-
-    
     //FUNCION PARA INSERTAR EN LA TABLA DE entradas_salidas
     public static function insert(
         string $gestionEoS,
@@ -17,13 +15,6 @@ class EntradasSalidas extends Table{
         string $departamento,
         string $asignado,
 
-
-        /*
-        string $fotoEquipo,
-        string $fotoEntrada,
-        string $fotoSalida,
-        
-        */
         ): int
     {
         $sqlstr = "INSERT INTO entradas_salidas (
@@ -35,11 +26,7 @@ class EntradasSalidas extends Table{
             filial, 
             departamento, 
             asignado,
-            /*
-            fotoEquipo,
-            fotoEntrada,
-            fotoSalida
-            */
+
             ) 
             values(
             :gestionEoS, 
@@ -49,12 +36,7 @@ class EntradasSalidas extends Table{
             :descripcion, 
             :filial, 
             :departamento, 
-            :asignado,
-            /*
-            :fotoEquipo,
-            :fotoEntrada,
-            :fotoSalida
-            */);";
+            :asignado);";
         $rowsInserted = self::executeNonQuery(
             $sqlstr,
             array("gestionEoS"=> $gestionEoS,
@@ -64,12 +46,7 @@ class EntradasSalidas extends Table{
             "descripcion" => $descripcion,
             "filial"=>$filial, 
             "departamento" => $departamento, 
-            "asignado"=>$asignado,
-            /*
-            "fotoEquipo"=>$fotoEquipo, 
-            "fotoEntrada" => $fotoEntrada, 
-            "fotoSalida"=>$fotoSalida,
-            */
+            "asignado"=>$asignado
             )
         );
         return $rowsInserted;
@@ -86,12 +63,7 @@ class EntradasSalidas extends Table{
                 string $descripcion,
                 string $filial,
                 string $departamento,
-                string $asignado,
-                /*
-                string $filial,
-                string $departamento,
-                string $asignado,
-                */
+                string $asignado
         ){
         $sqlstr = "UPDATE entradas_salidas set
                     gestionEoS = :gestionEoS, 
@@ -101,12 +73,7 @@ class EntradasSalidas extends Table{
                     descripcion = :descripcion,
                     filial = :filial, 
                     departamento = :departamento, 
-                    asignado = :asignado,
-                    /*
-                    fotoEquipo = :fotoEquipo 
-                    fotoEntrada = :fotoEntrada 
-                    fotoSalida = :fotoSalida
-                     */ 
+                    asignado = :asignado
                     where idEntradas_salidas =:idEntradas_salidas ;";
 
         $rowsUpdated = self::executeNonQuery(

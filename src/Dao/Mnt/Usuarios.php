@@ -22,7 +22,7 @@ class Usuarios extends Table{
         $userfching = $date->format(\DateTimeInterface::W3C);
         $date2 =  date_add($date, date_interval_create_from_date_string("30 days"));
         $userpswdexp = $date2->format(\DateTimeInterface::W3C);
-        $sqlstr = "INSERT INTO usuarioS (useremail, 
+        $sqlstr = "INSERT INTO usuario (useremail, 
             username, 
             userpswd, 
             userfching, 
@@ -105,7 +105,7 @@ class Usuarios extends Table{
     }
 
     public static function findLast(){
-        $sqlstr = "SELECT usercod FROM shoesnw.usuario  order by usercod desc LIMIT 1 ;";
+        $sqlstr = "SELECT usercod FROM usuario  order by usercod desc LIMIT 1 ;";
         $row = self::obtenerUnRegistro(
             $sqlstr,
             array()

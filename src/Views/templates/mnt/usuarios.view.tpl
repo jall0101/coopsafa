@@ -46,18 +46,18 @@
         <td>
           {{if ~usuarios_edit}}
           <form action="index.php" method="get">
-             <input type="hidden" name="page" value="mnt_usuario"/>
-              <input type="hidden" name="mode" value="UPD" />
-              <input type="hidden" name="usercod" value={{usercod}} />
-              <button type="submit" class="bg-success"><i class="fa-solid fa-pen-to-square fa-lg"></i></button>
+            <input type="hidden" name="page" value="mnt_usuario"/>
+            <input type="hidden" name="mode" value="UPD" />
+            <input type="hidden" name="usercod" value={{usercod}} />
+            <button type="submit" class="bg-success"><i class="fa-solid fa-pen-to-square fa-lg"></i></button>
           </form>
           {{endif ~usuarios_edit}} <br>
           {{if ~usuarios_delete}}
           <form action="index.php" method="get">
-             <input type="hidden" name="page" value="mnt_usuario"/>
-              <input type="hidden" name="mode" value="DEL" />
-              <input type="hidden" name="usercod" value={{usercod}} />
-              <button type="submit" class="bg-secondary"><i class="fa-solid fa-trash fa-lg"></i></button>
+            <input type="hidden" name="page" value="mnt_usuario"/>
+            <input type="hidden" name="mode" value="DEL" />
+            <input type="hidden" name="usercod" value={{usercod}} />
+            <button type="submit" class="bg-secondary"><i class="fa-solid fa-trash fa-lg"></i></button>
           </form>
           {{endif ~usuarios_delete}}
         </td>

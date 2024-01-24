@@ -75,9 +75,9 @@
              JALL | todos los derechos reservados 2023 &copy;
             </div>
             <div class="col-6 text-end">
-              <a class="mx-3" href="https://www.youtube.com/@coop.sagradafamiliahondura5496"><i class="fa-brands fa-youtube fa-2xl" style="color: #198800;"></i></a>
-              <a class="mx-3" href="https://www.filialelectronica.hn/"><i class="fa-solid fa-desktop fa-2xl" style="color: #198800;"></i></a>
-              <a class="mx-3" href="https://www.instagram.com/"><i class="fa-brands fa-instagram fa-2xl" style="color: #198800;"></i></a>
+              <a class="mx-3" href="https://www.youtube.com/@coop.sagradafamiliahondura5496"><i class="fa-brands fa-youtube fa-2xl" style="color: #ffffff;"></i></a>
+              <a class="mx-3" href="https://www.filialelectronica.hn/"><i class="fa-solid fa-desktop fa-2xl" style="color: #ffffff;"></i></a>
+              <a class="mx-3" href="https://www.instagram.com/"><i class="fa-brands fa-instagram fa-2xl" style="color: #ffffff;"></i></a>
             </div>
           </div>
       </div>
