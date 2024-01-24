@@ -21,6 +21,15 @@ class EntradasSalida extends PrivateController{
         "departamento" => "", 
         "asignado" => "",
 
+        "gestionEoS_error" => "", 
+        "inventarioEquipoES_error" => "", 
+        "nomEquipo-error" => "", 
+        "categoria_error" => "", 
+        "descripcion_error" => "", 
+        "filial_error" => "",
+        "departamento_error" => "", 
+        "asignado_error" => "",
+
         "general_errors"=> array(),
         "has_errors" =>false,
         "show_action" => true,
@@ -56,8 +65,8 @@ class EntradasSalida extends PrivateController{
             }
             $this->render();
         } catch (Exception $error) {
-            unset($_SESSION["xssToken_Mnt_EntradaSalida"]);
-            error_log(sprintf("Controller/Mnt/Zapato ERROR: %s", $error->getMessage()));
+            unset($_SESSION["xssToken_Mnt_EntradasSalida"]);
+            error_log(sprintf("Controller/Mnt/EntradasSalida ERROR: %s", $error->getMessage()));
             \Utilities\Site::redirectToWithMsg(
                 $this->redirectTo,
                 "Algo Inesperado Sucedió. Intente de Nuevo."
@@ -99,7 +108,7 @@ class EntradasSalida extends PrivateController{
     private function validatePostData(){
         if(isset($_POST["xssToken"])){
             if(isset($_SESSION["xssToken_Mnt_EntradasSalida"])){
-                if($_POST["xssToken"] !== $_SESSION["xssToken_Mnt_EntradaSalida"]){
+                if($_POST["xssToken"] !== $_SESSION["xssToken_Mnt_EntradasSalida"]){
                     throw new Exception("Invalid Xss Token no match");
                 }
             } else {
@@ -114,7 +123,7 @@ class EntradasSalida extends PrivateController{
         if(isset($_POST["gestionEoS"])){
             if(\Utilities\Validators::IsEmpty($_POST["gestionEoS"])){
                 $this->viewData["has_errors"] = true;
-                $this->viewData["general_errors"] = "La gestión no puede ir vacía!";
+                $this->viewData["gestionEoS_error"] = "La gestión no puede ir vacía!";
             }
         } else {
             throw new Exception("gestionEoS not present in form");
@@ -125,7 +134,7 @@ class EntradasSalida extends PrivateController{
         if(isset($_POST["inventarioEquipoES"])){
             if(\Utilities\Validators::IsEmpty($_POST["inventarioEquipoES"])){
                 $this->viewData["has_errors"] = true;
-                $this->viewData["general_errors"] = "El inventario no puede ir vacío!";
+                $this->viewData["inventarioEquipoES_error"] = "El inventario no puede ir vacío!";
             }
         } else {
             throw new Exception("inventarioEquipoES not present in form");
@@ -137,7 +146,7 @@ class EntradasSalida extends PrivateController{
         if(isset($_POST["nomEquipo"])){
             if(\Utilities\Validators::IsEmpty($_POST["nomEquipo"])){
                 $this->viewData["has_errors"] = true;
-                $this->viewData["general_errors"] = "El nombre no puede ir vacío!";
+                $this->viewData["nomEquipo_error"] = "El nombre no puede ir vacío!";
             }
         } else {
             throw new Exception("nomEquipo not present in form");
@@ -148,7 +157,7 @@ class EntradasSalida extends PrivateController{
         if(isset($_POST["categoria"])){
             if(\Utilities\Validators::IsEmpty($_POST["categoria"])){
                 $this->viewData["has_errors"] = true;
-                $this->viewData["general_errors"] = "La categoria no puede ir vacía!";
+                $this->viewData["categoria_error"] = "La categoria no puede ir vacía!";
             }
         } else {
             throw new Exception("categoria not present in form");
@@ -160,7 +169,7 @@ class EntradasSalida extends PrivateController{
         if(isset($_POST["descripcion"])){
             if(\Utilities\Validators::IsEmpty($_POST["descripcion"])){
                 $this->viewData["has_errors"] = true;
-                $this->viewData["general_errors"] = "La descripcion no puede ir vacía!";
+                $this->viewData["descripcion_error"] = "La descripcion no puede ir vacía!";
             }
         } else {
             throw new Exception("descripcion not present in form");
@@ -171,7 +180,7 @@ class EntradasSalida extends PrivateController{
         if(isset($_POST["filial"])){
             if(\Utilities\Validators::IsEmpty($_POST["filial"])){
                 $this->viewData["has_errors"] = true;
-                $this->viewData["general_errors"] = "La filial no puede ir vacía!";
+                $this->viewData["filial_error"] = "La filial no puede ir vacía!";
             }
         } else {
             throw new Exception("filial not present in form");
@@ -183,7 +192,7 @@ class EntradasSalida extends PrivateController{
         if(isset($_POST["departamento"])){
             if(\Utilities\Validators::IsEmpty($_POST["departamento"])){
                 $this->viewData["has_errors"] = true;
-                $this->viewData["general_errors"] = "El departamento no puede ir vacío!";
+                $this->viewData["departamento_error"] = "El departamento no puede ir vacío!";
             }
         } else {
             throw new Exception("departamento not present in form");
@@ -194,7 +203,7 @@ class EntradasSalida extends PrivateController{
         if(isset($_POST["asignado"])){
             if(\Utilities\Validators::IsEmpty($_POST["asignado"])){
                 $this->viewData["has_errors"] = true;
-                $this->viewData["general_errors"] = "El nombre de asignado no puede ir vacío!";
+                $this->viewData["asignado_error"] = "El nombre de asignado no puede ir vacío!";
             }
         } else {
             throw new Exception("asignado not present in form");

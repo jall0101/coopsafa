@@ -94,6 +94,9 @@ class Inventario extends PrivateController{
             }
         }
     }
+
+
+    
     private function validatePostData(){
         if(isset($_POST["xssToken"])){
             if(isset($_SESSION["xssToken_Mnt_Inventario"])){

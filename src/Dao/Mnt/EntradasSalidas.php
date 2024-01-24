@@ -74,7 +74,7 @@ class EntradasSalidas extends Table{
                     filial = :filial, 
                     departamento = :departamento, 
                     asignado = :asignado
-                    where idEntradas_salidas =:idEntradas_salidas ;";
+                    where idEntradas_salidas =:idEntradas_salidas;";
 
         $rowsUpdated = self::executeNonQuery(
             $sqlstr,
@@ -171,7 +171,7 @@ class EntradasSalidas extends Table{
 
     //BUSQUEDA POR ID DE INGRESO
     public static function findById(int $idEntradas_salidas ){
-        $sqlstr = "SELECT * from zapatos where idEntradas_salidas  = :idEntradas_salidas ;";
+        $sqlstr = "SELECT * from entradas_salidas where idEntradas_salidas  = :idEntradas_salidas ;";
         $row = self::obtenerUnRegistro(
             $sqlstr,
             array(
