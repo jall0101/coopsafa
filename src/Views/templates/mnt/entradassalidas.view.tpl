@@ -29,6 +29,7 @@
       <!--DATOS DEL GRID DE ENTRADAS Y SALIDAS-->
       {{foreach entradassalidas}}
       <tr class="bg-white">
+        <td>{{idEntradas_salidas}}</td>
         <td>{{gestionEoS}}</td>
         <td>{{inventarioEquipoES}}</td>
         <td>{{nomEquipo}}</td>
@@ -45,7 +46,7 @@
              <input type="hidden" name="page" value="mnt_entradassalida"/>
               <input type="hidden" name="mode" value="UPD" />
               <input type="hidden" name="idEntradas_salidas" value={{idEntradas_salidas}} />
-              <button type="submit" class="bg-primary"><i class="fa-solid fa-pen-to-square fa-lg"></i></button>
+              <button type="submit" class="bg-success"><i class="fa-solid fa-pen-to-square fa-lg"></i></button>
           </form>
           {{endif ~entradassalidas_edit}} <br>
 
@@ -56,7 +57,7 @@
              <input type="hidden" name="page" value="mnt_entradassalida"/>
               <input type="hidden" name="mode" value="DEL" />
               <input type="hidden" name="idEntradas_salidas" value={{idEntradas_salidas}} />
-              <button type="submit" class="bg-danger"><i class="fa-solid fa-trash fa-lg"></i></button>
+              <button type="submit" class="bg-secondary"><i class="fa-solid fa-trash fa-lg"></i></button>
           </form>
           {{endif ~entradassalidas_delete}}
         </td>

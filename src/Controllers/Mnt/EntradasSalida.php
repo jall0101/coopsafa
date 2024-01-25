@@ -6,7 +6,7 @@ use Exception;
 use Views\Renderer;
 
 class EntradasSalida extends PrivateController{
-    private $redirectTo = "index.php?page=Mnt-EntradasSalidas";
+    private $redirectTo = "index.php?page=Mnt-Entradassalidas";
         
     private $viewData = array(
         "mode" => "DSP",
@@ -65,8 +65,8 @@ class EntradasSalida extends PrivateController{
             }
             $this->render();
         } catch (Exception $error) {
-            unset($_SESSION["xssToken_Mnt_EntradasSalida"]);
-            error_log(sprintf("Controller/Mnt/EntradasSalida ERROR: %s", $error->getMessage()));
+            unset($_SESSION["xssToken_Mnt_Entradassalida"]);
+            error_log(sprintf("Controller/Mnt/Entradassalida ERROR: %s", $error->getMessage()));
             \Utilities\Site::redirectToWithMsg(
                 $this->redirectTo,
                 "Algo Inesperado Sucedió. Intente de Nuevo."
@@ -107,8 +107,8 @@ class EntradasSalida extends PrivateController{
 
     private function validatePostData(){
         if(isset($_POST["xssToken"])){
-            if(isset($_SESSION["xssToken_Mnt_EntradasSalida"])){
-                if($_POST["xssToken"] !== $_SESSION["xssToken_Mnt_EntradasSalida"]){
+            if(isset($_SESSION["xssToken_Mnt_Entradassalida"])){
+                if($_POST["xssToken"] !== $_SESSION["xssToken_Mnt_Entradassalida"]){
                     throw new Exception("Invalid Xss Token no match");
                 }
             } else {
@@ -252,7 +252,7 @@ class EntradasSalida extends PrivateController{
     private function executeAction(){
         switch($this->viewData["mode"]){
             case "INS":
-                $inserted = \Dao\Mnt\EntradasSalidas::insert(
+                $inserted = \Dao\Mnt\Entradassalidas::insert(
                     $this->viewData["gestionEoS"],
                     $this->viewData["inventarioEquipoES"],
                     $this->viewData["nomEquipo"],
@@ -271,7 +271,7 @@ class EntradasSalida extends PrivateController{
                 }
                 break;
             case "UPD":
-                $updated = \Dao\Mnt\EntradasSalidas::update(
+                $updated = \Dao\Mnt\Entradassalidas::update(
                     $this->viewData["idEntradas_salidas"],
                     $this->viewData["gestionEoS"],
                     $this->viewData["inventarioEquipoES"],
@@ -280,7 +280,7 @@ class EntradasSalida extends PrivateController{
                     $this->viewData["descripcion"],
                     $this->viewData["filial"],
                     $this->viewData["departamento"],
-                    $this->viewData["asignado"],
+                    $this->viewData["asignado"]
  
                 );
                 if($updated > 0){
@@ -292,7 +292,7 @@ class EntradasSalida extends PrivateController{
                 break;
             case "DEL":
 
-                $deleted = \Dao\Mnt\EntradasSalidas::delete(
+                $deleted = \Dao\Mnt\Entradassalidas::delete(
                     $this->viewData["idEntradas_salidas"]
                 );
                 if($deleted > 0){
@@ -311,12 +311,12 @@ class EntradasSalida extends PrivateController{
     private function render(){
         $xssToken = md5("ENTRADASSALIDA" . rand(0,4000) * rand(5000,9999));
         $this-> viewData["xssToken"] = $xssToken;
-        $_SESSION["xssToken_Mnt_EntradasSalida"] = $xssToken;
+        $_SESSION["xssToken_Mnt_Entradassalida"] = $xssToken;
 
         if($this->viewData["mode"] === "INS") {
             $this->viewData["modedsc"] = $this->modes["INS"];
         } else {
-            $tmpEntradasSalidas = \Dao\Mnt\EntradasSalidas::findById($this->viewData["idEntradas_salidas"]);
+            $tmpEntradasSalidas = \Dao\Mnt\Entradassalidas::findById($this->viewData["idEntradas_salidas"]);
             if(!$tmpEntradasSalidas){
                 throw new Exception("ENTRADAS Y SALIDAS no existe en DB");
             }

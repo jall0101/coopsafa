@@ -2,7 +2,7 @@
 namespace Dao\Mnt;
 use Dao\Table;
 
-class EntradasSalidas extends Table{
+class Entradassalidas extends Table{
     //FUNCIONES PARA EL CRUD DE ENTRADAS Y SALIDAS
     //FUNCION PARA INSERTAR EN LA TABLA DE entradas_salidas
     public static function insert(
@@ -25,8 +25,7 @@ class EntradasSalidas extends Table{
             descripcion, 
             filial, 
             departamento, 
-            asignado,
-
+            asignado
             ) 
             values(
             :gestionEoS, 

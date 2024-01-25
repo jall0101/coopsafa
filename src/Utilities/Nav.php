@@ -60,10 +60,10 @@ class Nav {
         }
 
 
-        if (\Utilities\Security::isAuthorized($userID, "Menu_MntEntradasSalidas")) {
+        if (\Utilities\Security::isAuthorized($userID, "Menu_MntEntradassalidas")) {
             $tmpNAVIGATION3[] = array(
                 "nav_url" => "index.php?page=mnt_entradassalidas",
-                "nav_label" => "EntradasSalidas"
+                "nav_label" => "Entradas y Salidas"
             );
         }
 

@@ -83,10 +83,7 @@ CREATE TABLE `entradas_salidas` (
   `descripcion` varchar(255) DEFAULT NULL,
   `filial` varchar(255) DEFAULT NULL,
   `departamento` varchar(255) DEFAULT NULL,
-  `asignado` varchar(255) DEFAULT NULL,
-  `fotoEquipo` varchar(255) DEFAULT NULL,
-  `fotoEntrada` varchar(255) DEFAULT NULL,
-  `fotoSalida` varchar(255) DEFAULT NULL
+  `asignado` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------

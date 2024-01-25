@@ -3,7 +3,7 @@
 </div>
 <section class="container">
   <div class="row justify-content-center">
-    <form action="index.php?page=Mnt_EntradasSalida&mode={{mode}}&idEntradas_salidas={{idEntradas_salidas}}" method="POST"
+    <form action="index.php?page=Mnt_Entradassalida&mode={{mode}}&idEntradas_salidas={{idEntradas_salidas}}" method="POST"
       class="col-10 align-self-center bg-gris_claro p-4 rounded" enctype="multipart/form-data">
 
         <section class="row mb-3 bg-gris_claro2 p-3 rounded">
@@ -96,9 +96,6 @@
             style="color: #ffffff;"></i>&nbsp;&nbsp;Cancelar</button>
       </section>
 
-
-
-
       </section>
 
         
@@ -111,7 +108,7 @@
     document.getElementById("btnCancelar").addEventListener("click", function (e) {
       e.preventDefault();
       e.stopPropagation();
-      window.location.assign("index.php?page=Mnt_EntradasSalidas");
+      window.location.assign("index.php?page=Mnt_Entradassalidas");
     });
   });
 </script>
