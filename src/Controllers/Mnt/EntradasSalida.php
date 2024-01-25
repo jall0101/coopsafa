@@ -5,7 +5,7 @@ use Controllers\PrivateController;
 use Exception;
 use Views\Renderer;
 
-class EntradasSalida extends PrivateController{
+class Entradassalida extends PrivateController{
     private $redirectTo = "index.php?page=Mnt-Entradassalidas";
         
     private $viewData = array(

@@ -13,7 +13,7 @@ class Entradassalidas extends Table{
         string $descripcion,
         string $filial,
         string $departamento,
-        string $asignado,
+        string $asignado
 
         ): int
     {
