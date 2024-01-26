@@ -290,8 +290,6 @@ class Inventario extends PrivateController{
         }
         Renderer::render("mnt/inventario", $this->viewData);
     }
-
-  
 }
 
 ?>

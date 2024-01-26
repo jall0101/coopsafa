@@ -1,83 +1,76 @@
 <?php
 namespace Dao\Mnt;
 use Dao\Table;
+class Gestiones extends Table{
 
-class Entradassalidas extends Table{
-    //FUNCIONES PARA EL CRUD DE ENTRADAS Y SALIDAS
-    //FUNCION PARA INSERTAR EN LA TABLA DE entradas_salidas
-    public static function insert(
-        string $gestionEoS,
-        string $inventarioEquipoES,
-        string $nomEquipo,
-        string $categoria,
-        string $descripcion,
-        string $filial,
-        string $departamento,
-        string $asignado
-
-        ): int
+    //INSERT EN TABLA DE GESTIONES
+    public static function insert(string $gestionEoS, 
+            string $inventarioEquipoES, 
+            string $nomEquipo, 
+            string $categoria, 
+            string $descripcion, 
+            string $filial, 
+            string $departamento, 
+            string $asignado): int
     {
-        $sqlstr = "INSERT INTO entradas_salidas (
-            gestionEoS, 
+        $sqlstr = "INSERT INTO entradas_salidas (gestionEoS, 
             inventarioEquipoES, 
             nomEquipo, 
-            categoria, 
+            categoria,
             descripcion, 
             filial, 
             departamento, 
-            asignado
-            ) 
-            values(
-            :gestionEoS, 
-            :inventarioEquipoES, 
+            asignado) 
+            values(:gestionEoS, 
+            :inventarioEquipoES,
             :nomEquipo, 
             :categoria, 
             :descripcion, 
             :filial, 
             :departamento, 
             :asignado);";
+        
         $rowsInserted = self::executeNonQuery(
             $sqlstr,
-            array("gestionEoS"=> $gestionEoS,
+            array("gestionEoS"=> $gestionEoS, 
             "inventarioEquipoES"=>$inventarioEquipoES, 
             "nomEquipo"=>$nomEquipo, 
             "categoria"=>$categoria, 
             "descripcion" => $descripcion,
             "filial"=>$filial, 
             "departamento" => $departamento, 
-            "asignado"=>$asignado
-            )
+            "asignado"=>$asignado)
         );
         return $rowsInserted;
     }
 
 
-    //FUNCION PARA ACTUALIZAR EN LA TABLA DE entradas_salidas
+    //UPDATE EN TABLA DE FILIALES
     public static function update(
-                int $idEntradas_salidas, 
-                string $gestionEoS, 
-                string $inventarioEquipoES,
-                string $nomEquipo, 
-                string $categoria, 
-                string $descripcion,
-                string $filial,
-                string $departamento,
-                string $asignado
-        ){
-        $sqlstr = "UPDATE entradas_salidas set
-                    gestionEoS = :gestionEoS, 
-                    inventarioEquipoES = :inventarioEquipoES, 
-                    nomEquipo = :nomEquipo, 
-                    categoria = :categoria, 
-                    descripcion = :descripcion,
-                    filial = :filial, 
-                    departamento = :departamento, 
-                    asignado = :asignado
-                    where idEntradas_salidas =:idEntradas_salidas;";
-
+        int $idEntradasalida,
+        string $gestionEoS, 
+        string $inventarioEquipoES,
+        string $nomEquipo, 
+        string $categoria, 
+        string $descripcion,
+        string $filial,
+        string $departamento,
+        string $asignado
+    ){
+        $sqlstr = "UPDATE entradas_salidas set 
+                gestionEoS = :gestionEoS, 
+                inventarioEquipoES = :inventarioEquipoES, 
+                nomEquipo = :nomEquipo, 
+                categoria = :categoria, 
+                descripcion = :descripcion,
+                filial = :filial, 
+                departamento = :departamento, 
+                asignado = :asignado
+                where idEntradasalida =:idEntradasalida;";
         $rowsUpdated = self::executeNonQuery(
             $sqlstr,
-            array("idEntradas_salidas" => $idEntradas_salidas,
+            array(
+                "idEntradasalida" => $idEntradasalida,
                 "gestionEoS"=>$gestionEoS, 
                 "inventarioEquipoES"=>$inventarioEquipoES, 
                 "nomEquipo"=>$nomEquipo, 
@@ -86,19 +79,18 @@ class Entradassalidas extends Table{
                 "filial"=>$filial,
                 "departamento" => $departamento, 
                 "asignado" => $asignado)
-
         );
         return $rowsUpdated;
     }
 
 
-    //FUNCION PARA ELIMINAR EN LA TABLA DE entradas_salidas
-    public static function delete(int $idEntradas_salidas){
-        $sqlstr = "DELETE from entradas_salidas where idEntradas_salidas=:idEntradas_salidas;";
+     //FUNCION PARA ELIMINAR EN LA TABLA DE entradas_salidas
+     public static function delete(int $idEntradasalida){
+        $sqlstr = "DELETE from entradas_salidas where idEntradasalida=:idEntradasalida;";
         $rowsDeleted = self::executeNonQuery(
             $sqlstr,
             array(
-                "idEntradas_salidas" => $idEntradas_salidas
+                "idEntradasalida" => $idEntradasalida
             )
         );
         return $rowsDeleted;
@@ -169,14 +161,16 @@ class Entradassalidas extends Table{
     }
 
     //BUSQUEDA POR ID DE INGRESO
-    public static function findById(int $idEntradas_salidas ){
-        $sqlstr = "SELECT * from entradas_salidas where idEntradas_salidas  = :idEntradas_salidas ;";
+    public static function findById(int $idEntradasalida ){
+        $sqlstr = "SELECT * from entradas_salidas where idEntradasalida  = :idEntradasalida ;";
         $row = self::obtenerUnRegistro(
             $sqlstr,
             array(
-                "idEntradas_salidas "=> $idEntradas_salidas 
+                "idEntradasalida "=> $idEntradasalida 
             )
         );
         return $row;
     }
+
+
 }

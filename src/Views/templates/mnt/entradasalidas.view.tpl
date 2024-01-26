@@ -17,9 +17,9 @@
         <th scope="col">Asignado</th>
 
         <th>
-          {{if ~entradassalidas_new}}
+          {{if ~entradasalidas_new}}
           <button class="bg-dark rounded" id="btnAdd"><i class="fa-solid fa-plus" style="color: #ffffff;"></i></button>
-          {{endif ~entradassalidas_new}}
+          {{endif ~entradasalidas_new}}
         </th>
       </tr>
     </thead>
@@ -27,9 +27,9 @@
     
     <tbody>
       <!--DATOS DEL GRID DE ENTRADAS Y SALIDAS-->
-      {{foreach entradassalidas}}
+      {{foreach entradasalidas}}
       <tr class="bg-white">
-        <td>{{idEntradas_salidas}}</td>
+        <td>{{idEntradasalida}}</td>
         <td>{{gestionEoS}}</td>
         <td>{{inventarioEquipoES}}</td>
         <td>{{nomEquipo}}</td>
@@ -41,28 +41,28 @@
 
 
         <td>
-          {{if ~entradassalidas_edit}}
+          {{if ~entradasalidas_edit}}
           <form action="index.php" method="get">
-             <input type="hidden" name="page" value="mnt_entradassalida"/>
+             <input type="hidden" name="page" value="mnt_entradasalida"/>
               <input type="hidden" name="mode" value="UPD" />
-              <input type="hidden" name="idEntradas_salidas" value={{idEntradas_salidas}} />
+              <input type="hidden" name="idEntradasalida" value={{idEntradasalida}} />
               <button type="submit" class="bg-success"><i class="fa-solid fa-pen-to-square fa-lg"></i></button>
           </form>
-          {{endif ~entradassalidas_edit}} <br>
+          {{endif ~entradasalidas_edit}} <br>
 
 
 
-          {{if ~entradassalidas_delete}}
+          {{if ~entradasalidas_delete}}
           <form action="index.php" method="get">
-             <input type="hidden" name="page" value="mnt_entradassalida"/>
+             <input type="hidden" name="page" value="mnt_entradasalida"/>
               <input type="hidden" name="mode" value="DEL" />
-              <input type="hidden" name="idEntradas_salidas" value={{idEntradas_salidas}} />
+              <input type="hidden" name="idEntradasalida" value={{idEntradasalida}} />
               <button type="submit" class="bg-secondary"><i class="fa-solid fa-trash fa-lg"></i></button>
           </form>
-          {{endif ~entradassalidas_delete}}
+          {{endif ~entradasalidas_delete}}
         </td>
       </tr>
-      {{endfor entradassalidas}}
+      {{endfor entradasalidas}}
     </tbody>
   </table>
 </section>
@@ -71,7 +71,7 @@
       document.getElementById("btnAdd").addEventListener("click", function (e) {
         e.preventDefault();
         e.stopPropagation();
-        window.location.assign("index.php?page=mnt_entradassalida&mode=INS&idEntradas_salidas=0");
+        window.location.assign("index.php?page=mnt_entradasalida&mode=INS&idEntradasalida=0");
       });
     });
 </script>

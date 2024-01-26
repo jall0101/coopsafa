@@ -32,7 +32,8 @@ class Admin extends \Controllers\PrivateController
         //MANTENIMIENTO DE APARTADOS
         $viewData["menu_zapatos"] = \Utilities\Security::isAuthorized($userID, "Menu_MntZapatos");
         $viewData["menu_inventarios"] = \Utilities\Security::isAuthorized($userID, "Menu_MntInventarios");
-        $viewData["menu_entradassalidas"] = \Utilities\Security::isAuthorized($userID, "Menu_MntEntradassalidas");
+        $viewData["menu_entradasalidas"] = \Utilities\Security::isAuthorized($userID, "Menu_MntEntradasalidas");
+        $viewData["menu_gestiones"] = \Utilities\Security::isAuthorized($userID, "Menu_MntGestiones");
         $viewData["menu_marcas"] = \Utilities\Security::isAuthorized($userID, "Menu_MntMarcas");;
         $viewData["menu_depart"] = \Utilities\Security::isAuthorized($userID, "Menu_MntDepartamentos");
         $viewData["menu_asignados"] = \Utilities\Security::isAuthorized($userID, "Menu_MntAsignados");

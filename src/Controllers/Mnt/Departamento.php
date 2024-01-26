@@ -95,6 +95,8 @@ class Departamento extends PrivateController{
         } else {
             throw new Exception("nombredepartamento not present in form");
         }
+
+
         if(isset($_POST["mode"])){
             if(!key_exists($_POST["mode"], $this->modes)){
                 throw new Exception("mode has a bad value");
@@ -105,6 +107,8 @@ class Departamento extends PrivateController{
         }else {
             throw new Exception("mode not present in form");
         }
+
+        
         if(isset($_POST["departamentocod"])){
             if(($this->viewData["mode"] !== "INS" && intval($_POST["departamentocod"])<=0)){
                 throw new Exception("departamentocod is not Valid");

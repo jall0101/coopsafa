@@ -26,15 +26,15 @@
       </button>
       {{endif ~menu_inventarios}}
 
-      
       <!--ENTRADAS Y SALIDAS-->
-      {{if ~menu_entradassalidas}}
+      {{if ~menu_gestiones}}
       <button type="button" class="btn btn-outline-secondary p-5 col-md-3 offset-sm-1">
         <i class="fa-solid fa-truck-ramp-box fa-2xl" style="color: #000000;"></i><br><br>
-        <a href="index.php?page=mnt_entradassalidas" class="text-decoration-none text-dark">ENTRADAS Y SALIDAS</a>
+        <a href="index.php?page=mnt_gestiones" class="text-decoration-none text-dark">ENTRADAS Y SALIDAS</a>
       </button>
-      {{endif ~menu_entradassalidas}}
+      {{endif ~menu_gestiones}}
 
+      
 
       <!--MARCAS-->
       {{if ~menu_marcas}}
