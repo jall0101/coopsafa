@@ -7,39 +7,35 @@ class Gestiones extends Table{
     public static function insert(string $tipogestion, 
             string $invEquipoGestion, 
             string $nomEquipoGestion, 
-            string $categoriaGestion, 
             string $descripcionGestion, 
             string $filialGestion, 
             string $departamentoGestion, 
-            string $asignadoGestion): int
+            string $asigGestion): int
     {
         $sqlstr = "INSERT INTO gestiones (tipogestion, 
             invEquipoGestion, 
             nomEquipoGestion, 
-            categoriaGestion,
             descripcionGestion, 
             filialGestion, 
             departamentoGestion, 
-            asignadoGestion) 
+            asigGestion) 
             values(:tipogestion, 
             :invEquipoGestion,
             :nomEquipoGestion, 
-            :categoriaGestion, 
             :descripcionGestion, 
             :filialGestion, 
             :departamentoGestion, 
-            :asignadoGestion);";
+            :asigGestion);";
         
         $rowsInserted = self::executeNonQuery(
             $sqlstr,
             array("tipogestion"=> $tipogestion, 
             "invEquipoGestion"=>$invEquipoGestion, 
-            "nomEquipoGestion"=>$nomEquipoGestion, 
-            "categoriaGestion"=>$categoriaGestion, 
+            "nomEquipoGestion"=>$nomEquipoGestion,
             "descripcionGestion" => $descripcionGestion,
             "filialGestion"=>$filialGestion, 
             "departamentoGestion" => $departamentoGestion, 
-            "asignadoGestion"=>$asignadoGestion)
+            "asigGestion"=>$asigGestion)
         );
         return $rowsInserted;
     }
@@ -51,21 +47,19 @@ class Gestiones extends Table{
         string $tipogestion, 
         string $invEquipoGestion,
         string $nomEquipoGestion, 
-        string $categoriaGestion, 
         string $descripcionGestion,
         string $filialGestion,
         string $departamentoGestion,
-        string $asignadoGestion
+        string $asigGestion
     ){
         $sqlstr = "UPDATE gestiones set 
                 tipogestion = :tipogestion, 
                 invEquipoGestion = :invEquipoGestion, 
                 nomEquipoGestion = :nomEquipoGestion, 
-                categoriaGestion = :categoriaGestion, 
                 descripcionGestion = :descripcionGestion,
                 filialGestion = :filialGestion, 
                 departamentoGestion = :departamentoGestion, 
-                asignadoGestion = :asignadoGestion
+                asigGestion = :asigGestion
                 where gestioncod =:gestioncod;";
         $rowsUpdated = self::executeNonQuery(
             $sqlstr,
@@ -73,12 +67,11 @@ class Gestiones extends Table{
                 "gestioncod" => $gestioncod,
                 "tipogestion"=>$tipogestion, 
                 "invEquipoGestion"=>$invEquipoGestion, 
-                "nomEquipoGestion"=>$nomEquipoGestion, 
-                "categoriaGestion"=>$categoriaGestion, 
+                "nomEquipoGestion"=>$nomEquipoGestion,
                 "descripcionGestion"=>$descripcionGestion,
                 "filialGestion"=>$filialGestion,
                 "departamentoGestion" => $departamentoGestion, 
-                "asignadoGestion" => $asignadoGestion)
+                "asigGestion" => $asigGestion)
         );
         return $rowsUpdated;
     }
@@ -148,13 +141,13 @@ class Gestiones extends Table{
     }
 
      //BUSCAR POR asignado
-     public static function findByAsignado(string $asignadoGestion){
-        $sqlstr = "SELECT * FROM gestiones WHERE asignadoGestion = :asignadoGestion;";
+     public static function findByAsignado(string $asigGestion){
+        $sqlstr = "SELECT * FROM gestiones WHERE asigGestion = :asigGestion;";
         $row = self::obtenerRegistros(
             $sqlstr,
             array(
                 
-                "asignadoGestion" => $asignadoGestion
+                "asigGestion" => $asigGestion
             )
         );
         return $row;

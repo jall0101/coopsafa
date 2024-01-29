@@ -10,7 +10,6 @@
         <th scope="col">Tipo de Gestión</th>
         <th scope="col">Código de Inventario</th>
         <th scope="col">Nombre de Equipo</th>
-        <th scope="col">Categoría</th>
         <th scope="col">Descripción</th>
         <th scope="col">Filial</th>
         <th scope="col">Departamento</th>
@@ -38,11 +37,10 @@
             {{endif ~gestiones_view}}
             </a>
         </td>
-        <td>{{categoriaGestion}}</td>
         <td>{{descripcionGestion}}</td>
         <td>{{filialGestion}}</td>
         <td>{{departamentoGestion}}</td>
-        <td>{{asignadoGestion}}</td>
+        <td>{{asigGestion}}</td>
 
 
 

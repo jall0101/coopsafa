@@ -18,18 +18,18 @@
     <section class="row">
       <label for="tipogestion" class="col-4">Gestion</label>
       <input type="text" {{readonly}} name="tipogestion" value="{{tipogestion}}" maxlength="45" placeholder="Gestión"/>
-      {{if tipogestion_error}}
-        <span class="error col-12">{{tipogestion_error}}</span>
-      {{endif tipogestion_error}}
+      {{if general_errors}}
+        <span class="error col-12">{{general_errors}}</span>
+      {{endif general_errors}}
     </section>
 
     <!--3. NÚMERO DE INVENTARIO EN ENTRADAS Y SALIDAS-->
     <section class="row">
       <label for="invEquipoGestion" class="col-4">Inventario</label>
       <input type="text" {{readonly}} name="invEquipoGestion" value="{{invEquipoGestion}}" maxlength="45" placeholder="Inventario"/>
-      {{if invEquipoGestion_error}}
-        <span class="error col-12">{{invEquipoGestion_error}}</span>
-      {{endif invEquipoGestion_error}}
+      {{if general_errors}}
+        <span class="error col-12">{{general_errors}}</span>
+      {{endif general_errors}}
     </section>
 
 
@@ -37,31 +37,19 @@
     <section class="row">
       <label for="nomEquipoGestion" class="col-4">Nombre de Equipo</label>
       <input type="text" {{readonly}} name="nomEquipoGestion" value="{{nomEquipoGestion}}" maxlength="45" placeholder="Nombre de Equipo"/>
-      {{if nomEquipoGestion_error}}
-        <span class="error col-12">{{nomEquipoGestion_error}}</span>
-      {{endif nomEquipoGestion_error}}
+      {{if general_errors}}
+        <span class="error col-12">{{general_errors}}</span>
+      {{endif general_errors}}
     </section>
-
-
-
-    <!--5. CATEGORIA EN ENTRADAS Y SALIDAS-->
-    <section class="row">
-      <label for="categoriaGestion" class="col-4">Categoria</label>
-      <input type="text" {{readonly}} name="categoriaGestion" value="{{categoriaGestion}}" maxlength="45" placeholder="Categoría"/>
-      {{if categoriaGestion_error}}
-        <span class="error col-12">{{categoriaGestion_error}}</span>
-      {{endif categoriaGestion_error}}
-    </section>
-
 
 
     <!--6. DESCRIPCIÓN EN ENTRADAS Y SALIDAS-->
     <section class="row">
       <label for="descripcionGestion" class="col-4">Descripción</label>
       <input type="text" {{readonly}} name="descripcionGestion" value="{{descripcionGestion}}" maxlength="45" placeholder="Descripción"/>
-      {{if descripcionGestion_error}}
-        <span class="error col-12">{{descripcionGestion_error}}</span>
-      {{endif descripcionGestion_error}}
+      {{if general_errors}}
+        <span class="error col-12">{{general_errors}}</span>
+      {{endif general_errors}}
     </section>
 
 
@@ -70,9 +58,9 @@
     <section class="row">
       <label for="filialGestion" class="col-4">Filial</label>
       <input type="text" {{readonly}} name="filialGestion" value="{{filialGestion}}" maxlength="45" placeholder="Filial"/>
-      {{if filialGestion_error}}
-        <span class="error col-12">{{filialGestion_error}}</span>
-      {{endif filialGestion_error}}
+      {{if general_errors}}
+        <span class="error col-12">{{general_errors}}</span>
+      {{endif general_errors}}
     </section>
 
 
@@ -81,9 +69,9 @@
     <section class="row">
       <label for="departamentoGestion" class="col-4">Departamento</label>
       <input type="text" {{readonly}} name="departamentoGestion" value="{{departamentoGestion}}" maxlength="45" placeholder="Departamento"/>
-      {{if departamentoGestion_error}}
-        <span class="error col-12">{{departamentoGestion_error}}</span>
-      {{endif departamentoGestion_error}}
+      {{if general_errors}}
+        <span class="error col-12">{{general_errors}}</span>
+      {{endif general_errors}}
     </section>
 
 
@@ -91,11 +79,11 @@
 
     <!--9. ASIGNADO EN ENTRADAS Y SALIDAS-->
     <section class="row">
-      <label for="asignadoGestion" class="col-4">Asignado</label>
-      <input type="text" {{readonly}} name="asignado" value="{{asignadoGestion}}" maxlength="45" placeholder="Asignado"/>
-      {{if asignadoGestion_error}}
-        <span class="error col-12">{{asignadoGestion_error}}</span>
-      {{endif asignadoGestion_error}}
+      <label for="asigGestion" class="col-4">Asignado</label>
+      <input type="text" {{readonly}} name="asigGestion" value="{{asigGestion}}" maxlength="45" placeholder="Asignado"/>
+      {{if general_errors}}
+        <span class="error col-12">{{general_errors}}</span>
+      {{endif general_errors}}
     </section>
 
 

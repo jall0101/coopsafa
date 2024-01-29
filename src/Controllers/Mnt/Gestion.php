@@ -14,20 +14,10 @@ class Gestion extends PrivateController{
         "tipogestion" => "", 
         "invEquipoGestion" => "", 
         "nomEquipoGestion" => "", 
-        "categoriaGestion" => "", 
         "descripcionGestion" => "", 
         "filialGestion" => "",
         "departamentoGestion" => "", 
-        "asignadoGestion" => "",
-
-        "tipogestion_error" => "", 
-        "invEquipoGestion_error" => "", 
-        "nomEquipoGestion_error" => "", 
-        "categoriaGestion_error" => "", 
-        "descripcionGestion_error" => "", 
-        "filialGestion_error" => "",
-        "departamentoGestion_error" => "", 
-        "asignadoGestion_error" => "",
+        "asigGestion" => "",
         "general_errors"=> array(),
         "has_errors" =>false,
         "show_action" => true,
@@ -141,18 +131,6 @@ class Gestion extends PrivateController{
             throw new Exception("nomEquipoGestion not present in form");
         }
 
-
-        //LECTURA DE categoria DE ENTRADAS Y SALIDAS
-        if(isset($_POST["categoriaGestion"])){
-            if(\Utilities\Validators::IsEmpty($_POST["categoriaGestion"])){
-                $this->viewData["has_errors"] = true;
-                $this->viewData["general_errors"] = "La categoriaGestion no puede ir vacía!";
-            }
-        } else {
-            throw new Exception("categoriaGestion not present in form");
-        }
-
-
         //LECTURA DE descripcion DE ENTRADAS Y SALIDAS
         if(isset($_POST["descripcionGestion"])){
             if(\Utilities\Validators::IsEmpty($_POST["descripcionGestion"])){
@@ -187,13 +165,13 @@ class Gestion extends PrivateController{
 
 
         //LECTURA DE asignado DE ENTRADAS Y SALIDAS
-        if(isset($_POST["asignadoGestion"])){
-            if(\Utilities\Validators::IsEmpty($_POST["asignadoGestion"])){
+        if(isset($_POST["asigGestion"])){
+            if(\Utilities\Validators::IsEmpty($_POST["asigGestion"])){
                 $this->viewData["has_errors"] = true;
-                $this->viewData["general_errors"] = "El nombre de asignadoGestion no puede ir vacío!";
+                $this->viewData["general_errors"] = "El nombre de asig Gestion no puede ir vacío!";
             }
         } else {
-            throw new Exception("asignadoGestion not present in form");
+            throw new Exception("asig Gestion not present in form");
         }
 
 
@@ -211,11 +189,10 @@ class Gestion extends PrivateController{
         $this->viewData["tipogestion"]= $_POST["tipogestion"];
         $this->viewData["invEquipoGestion"]= $_POST["invEquipoGestion"];
         $this->viewData["nomEquipoGestion"]= $_POST["nomEquipoGestion"];
-        $this->viewData["categoriaGestion"]= $_POST["categoriaGestion"];
         $this->viewData["descripcionGestion"]= $_POST["descripcionGestion"];
         $this->viewData["filialGestion"]= $_POST["filialGestion"];
         $this->viewData["departamentoGestion"]= $_POST["departamentoGestion"];
-        $this->viewData["asignadoGestion"]= $_POST["asignadoGestion"];
+        $this->viewData["asigGestion"]= $_POST["asigGestion"];
     }
 
 
@@ -227,11 +204,10 @@ class Gestion extends PrivateController{
                     $this->viewData["tipogestion"],
                     $this->viewData["invEquipoGestion"],
                     $this->viewData["nomEquipoGestion"],
-                    $this->viewData["categoriaGestion"],
                     $this->viewData["descripcionGestion"],
                     $this->viewData["filialGestion"],
                     $this->viewData["departamentoGestion"],
-                    $this->viewData["asignadoGestion"]
+                    $this->viewData["asigGestion"]
                 );
                 if($inserted > 0){
                     \Utilities\Site::redirectToWithMsg(
@@ -246,11 +222,10 @@ class Gestion extends PrivateController{
                     $this->viewData["tipogestion"],
                     $this->viewData["invEquipoGestion"],
                     $this->viewData["nomEquipoGestion"],
-                    $this->viewData["categoriaGestion"],
                     $this->viewData["descripcionGestion"],
                     $this->viewData["filialGestion"],
                     $this->viewData["departamentoGestion"],
-                    $this->viewData["asignadoGestion"]
+                    $this->viewData["asigGestion"]
                     
                 );
                 if($updated > 0){
@@ -287,17 +262,9 @@ class Gestion extends PrivateController{
             }
             
             \Utilities\ArrUtils::mergeFullArrayTo($tmpGestiones, $this->viewData);
-            
             $this->viewData["modedsc"] = sprintf(
                 $this->modes[$this->viewData["mode"]],
-                    $this->viewData["tipogestion"],
                     $this->viewData["invEquipoGestion"],
-                    $this->viewData["nomEquipoGestion"],
-                    $this->viewData["categoriaGestion"],
-                    $this->viewData["descripcionGestion"],
-                    $this->viewData["filialGestion"],
-                    $this->viewData["departamentoGestion"],
-                    $this->viewData["asignadoGestion"],
                     $this->viewData["gestioncod"]
             );
             
