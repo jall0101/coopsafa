@@ -4,42 +4,42 @@ use Dao\Table;
 class Gestiones extends Table{
 
     //INSERT EN TABLA DE GESTIONES
-    public static function insert(string $gestionEoS, 
-            string $inventarioEquipoES, 
-            string $nomEquipo, 
-            string $categoria, 
-            string $descripcion, 
-            string $filial, 
-            string $departamento, 
-            string $asignado): int
+    public static function insert(string $tipogestion, 
+            string $invEquipoGestion, 
+            string $nomEquipoGestion, 
+            string $categoriaGestion, 
+            string $descripcionGestion, 
+            string $filialGestion, 
+            string $departamentoGestion, 
+            string $asignadoGestion): int
     {
-        $sqlstr = "INSERT INTO entradas_salidas (gestionEoS, 
-            inventarioEquipoES, 
-            nomEquipo, 
-            categoria,
-            descripcion, 
-            filial, 
-            departamento, 
-            asignado) 
-            values(:gestionEoS, 
-            :inventarioEquipoES,
-            :nomEquipo, 
-            :categoria, 
-            :descripcion, 
-            :filial, 
-            :departamento, 
-            :asignado);";
+        $sqlstr = "INSERT INTO gestiones (tipogestion, 
+            invEquipoGestion, 
+            nomEquipoGestion, 
+            categoriaGestion,
+            descripcionGestion, 
+            filialGestion, 
+            departamentoGestion, 
+            asignadoGestion) 
+            values(:tipogestion, 
+            :invEquipoGestion,
+            :nomEquipoGestion, 
+            :categoriaGestion, 
+            :descripcionGestion, 
+            :filialGestion, 
+            :departamentoGestion, 
+            :asignadoGestion);";
         
         $rowsInserted = self::executeNonQuery(
             $sqlstr,
-            array("gestionEoS"=> $gestionEoS, 
-            "inventarioEquipoES"=>$inventarioEquipoES, 
-            "nomEquipo"=>$nomEquipo, 
-            "categoria"=>$categoria, 
-            "descripcion" => $descripcion,
-            "filial"=>$filial, 
-            "departamento" => $departamento, 
-            "asignado"=>$asignado)
+            array("tipogestion"=> $tipogestion, 
+            "invEquipoGestion"=>$invEquipoGestion, 
+            "nomEquipoGestion"=>$nomEquipoGestion, 
+            "categoriaGestion"=>$categoriaGestion, 
+            "descripcionGestion" => $descripcionGestion,
+            "filialGestion"=>$filialGestion, 
+            "departamentoGestion" => $departamentoGestion, 
+            "asignadoGestion"=>$asignadoGestion)
         );
         return $rowsInserted;
     }
@@ -47,50 +47,50 @@ class Gestiones extends Table{
 
     //UPDATE EN TABLA DE FILIALES
     public static function update(
-        int $idEntradasalida,
-        string $gestionEoS, 
-        string $inventarioEquipoES,
-        string $nomEquipo, 
-        string $categoria, 
-        string $descripcion,
-        string $filial,
-        string $departamento,
-        string $asignado
+        int $gestioncod,
+        string $tipogestion, 
+        string $invEquipoGestion,
+        string $nomEquipoGestion, 
+        string $categoriaGestion, 
+        string $descripcionGestion,
+        string $filialGestion,
+        string $departamentoGestion,
+        string $asignadoGestion
     ){
-        $sqlstr = "UPDATE entradas_salidas set 
-                gestionEoS = :gestionEoS, 
-                inventarioEquipoES = :inventarioEquipoES, 
-                nomEquipo = :nomEquipo, 
-                categoria = :categoria, 
-                descripcion = :descripcion,
-                filial = :filial, 
-                departamento = :departamento, 
-                asignado = :asignado
-                where idEntradasalida =:idEntradasalida;";
+        $sqlstr = "UPDATE gestiones set 
+                tipogestion = :tipogestion, 
+                invEquipoGestion = :invEquipoGestion, 
+                nomEquipoGestion = :nomEquipoGestion, 
+                categoriaGestion = :categoriaGestion, 
+                descripcionGestion = :descripcionGestion,
+                filialGestion = :filialGestion, 
+                departamentoGestion = :departamentoGestion, 
+                asignadoGestion = :asignadoGestion
+                where gestioncod =:gestioncod;";
         $rowsUpdated = self::executeNonQuery(
             $sqlstr,
             array(
-                "idEntradasalida" => $idEntradasalida,
-                "gestionEoS"=>$gestionEoS, 
-                "inventarioEquipoES"=>$inventarioEquipoES, 
-                "nomEquipo"=>$nomEquipo, 
-                "categoria"=>$categoria, 
-                "descripcion"=>$descripcion,
-                "filial"=>$filial,
-                "departamento" => $departamento, 
-                "asignado" => $asignado)
+                "gestioncod" => $gestioncod,
+                "tipogestion"=>$tipogestion, 
+                "invEquipoGestion"=>$invEquipoGestion, 
+                "nomEquipoGestion"=>$nomEquipoGestion, 
+                "categoriaGestion"=>$categoriaGestion, 
+                "descripcionGestion"=>$descripcionGestion,
+                "filialGestion"=>$filialGestion,
+                "departamentoGestion" => $departamentoGestion, 
+                "asignadoGestion" => $asignadoGestion)
         );
         return $rowsUpdated;
     }
 
 
-     //FUNCION PARA ELIMINAR EN LA TABLA DE entradas_salidas
-     public static function delete(int $idEntradasalida){
-        $sqlstr = "DELETE from entradas_salidas where idEntradasalida=:idEntradasalida;";
+     //FUNCION PARA ELIMINAR EN LA TABLA DE gestiones
+     public static function delete(int $gestioncod){
+        $sqlstr = "DELETE from gestiones where gestioncod=:gestioncod;";
         $rowsDeleted = self::executeNonQuery(
             $sqlstr,
             array(
-                "idEntradasalida" => $idEntradasalida
+                "gestioncod" => $gestioncod
             )
         );
         return $rowsDeleted;
@@ -101,19 +101,19 @@ class Gestiones extends Table{
     //FUNCIONES PARA BUSQUEDAS
     //BUSCAR TODO
     public static function findAll(){
-        $sqlstr = "SELECT * from entradas_salidas;";
+        $sqlstr = "SELECT * from gestiones;";
         return self::obtenerRegistros($sqlstr, array());
     }
 
 
     //BUSCAR POR GESTION
-    public static function findByGestion(string $gestionEoS ){
-        $sqlstr = "SELECT * FROM entradas_salidas WHERE gestionEoS = :gestionEoS;";
+    public static function findByGestion(string $tipogestion){
+        $sqlstr = "SELECT * FROM gestiones WHERE tipogestion = :tipogestion;";
         $row = self::obtenerRegistros(
             $sqlstr,
             array(
                 
-                "gestionEoS" => $gestionEoS
+                "tipogestion" => $tipogestion
             )
         );
         return $row;
@@ -122,51 +122,51 @@ class Gestiones extends Table{
 
 
     //BUSCAR POR FILIAL
-    public static function findByFilial(string $filial ){
-        $sqlstr = "SELECT * FROM entradas_salidas WHERE filial = :filial;";
+    public static function findByFilial(string $filialGestion){
+        $sqlstr = "SELECT * FROM gestiones WHERE filialGestion = :filialGestion;";
         $row = self::obtenerRegistros(
             $sqlstr,
             array(
                 
-                "filial" => $filial
+                "filialGestion" => $filialGestion
             )
         );
         return $row;
     }
 
     //BUSCAR POR INVENTARIO
-    public static function findByInventario(string $inventarioEquipoES ){
-        $sqlstr = "SELECT * FROM entradas_salidas WHERE inventarioEquipoES = :inventarioEquipoES;";
+    public static function findByInventario(string $invEquipoGestion){
+        $sqlstr = "SELECT * FROM gestiones WHERE invEquipoGestion = :invEquipoGestion;";
         $row = self::obtenerRegistros(
             $sqlstr,
             array(
                 
-                "inventarioEquipoES" => $inventarioEquipoES
+                "invEquipoGestion" => $invEquipoGestion
             )
         );
         return $row;
     }
 
      //BUSCAR POR asignado
-     public static function findByAsignado(string $asignado ){
-        $sqlstr = "SELECT * FROM entradas_salidas WHERE asignado = :asignado;";
+     public static function findByAsignado(string $asignadoGestion){
+        $sqlstr = "SELECT * FROM gestiones WHERE asignadoGestion = :asignadoGestion;";
         $row = self::obtenerRegistros(
             $sqlstr,
             array(
                 
-                "asignado" => $asignado
+                "asignadoGestion" => $asignadoGestion
             )
         );
         return $row;
     }
 
     //BUSQUEDA POR ID DE INGRESO
-    public static function findById(int $idEntradasalida ){
-        $sqlstr = "SELECT * from entradas_salidas where idEntradasalida  = :idEntradasalida ;";
+    public static function findById(int $gestioncod){
+        $sqlstr = "SELECT * from gestiones where gestioncod = :gestioncod ;";
         $row = self::obtenerUnRegistro(
             $sqlstr,
             array(
-                "idEntradasalida "=> $idEntradasalida 
+                "gestioncod"=> $gestioncod
             )
         );
         return $row;

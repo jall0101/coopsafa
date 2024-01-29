@@ -17,8 +17,6 @@
 
 
       <!--INVENTARIO-->
-
-
       {{if ~menu_inventarios}}
       <button type="button" class="btn btn-outline-secondary p-5 col-md-3 offset-sm-1">
         <i class="fa-solid fa-warehouse fa-2xl" style="color: #000000;"></i><br><br>

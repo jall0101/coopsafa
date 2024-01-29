@@ -32,7 +32,7 @@
            href="index.php?page=mnt_inventario&mode=DSP&id={{id}}">{{id}}</a></td>
          {{endif ~inventarios_view}}
 
-         <td>{{inventarioest}}</td>
+        <td>{{inventarioest}}</td>
         <td>{{numInventario}}</td>
         <td>{{nomEquipo}}</td>
         <td>{{categoriaEquipo}}</td>

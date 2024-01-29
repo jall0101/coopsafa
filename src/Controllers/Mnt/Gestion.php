@@ -10,24 +10,24 @@ class Gestion extends PrivateController{
     private $viewData = array(
         "mode" => "DSP",
         "modedsc" => "",
-        "idEntradasalida" => 0,
-        "gestionES" => "", 
-        "inventarioEquipoES" => "", 
-        "nomEquipo" => "", 
-        "categoria" => "", 
-        "descripcion" => "", 
-        "filial" => "",
-        "departamento" => "", 
-        "asignado" => "",
+        "gestioncod" => 0,
+        "tipogestion" => "", 
+        "invEquipoGestion" => "", 
+        "nomEquipoGestion" => "", 
+        "categoriaGestion" => "", 
+        "descripcionGestion" => "", 
+        "filialGestion" => "",
+        "departamentoGestion" => "", 
+        "asignadoGestion" => "",
 
-        "gestionES_error" => "", 
-        "inventarioEquipoES_error" => "", 
-        "nomEquipo-error" => "", 
-        "categoria_error" => "", 
-        "descripcion_error" => "", 
-        "filial_error" => "",
-        "departamento_error" => "", 
-        "asignado_error" => "",
+        "tipogestion_error" => "", 
+        "invEquipoGestion_error" => "", 
+        "nomEquipoGestion_error" => "", 
+        "categoriaGestion_error" => "", 
+        "descripcionGestion_error" => "", 
+        "filialGestion_error" => "",
+        "departamentoGestion_error" => "", 
+        "asignadoGestion_error" => "",
         "general_errors"=> array(),
         "has_errors" =>false,
         "show_action" => true,
@@ -85,8 +85,8 @@ class Gestion extends PrivateController{
             throw new Exception("Mode not defined on Query Params");
         }
         if($this->viewData["mode"] !== "INS") {
-            if(isset($_GET['idEntradasalida'])){
-                $this->viewData["idEntradasalida"] = intval($_GET["idEntradasalida"]);
+            if(isset($_GET['gestioncod'])){
+                $this->viewData["gestioncod"] = intval($_GET["gestioncod"]);
             } else {
                 throw new Exception("Id not found on Query Params");
             }
@@ -110,158 +110,112 @@ class Gestion extends PrivateController{
 
 
         //LECTURA DE gestionEoS DE ENTRADAS Y SALIDAS
-        if(isset($_POST["gestionES"])){
-            if(\Utilities\Validators::IsEmpty($_POST["gestionES"])){
+        if(isset($_POST["tipogestion"])){
+            if(\Utilities\Validators::IsEmpty($_POST["tipogestion"])){
                 $this->viewData["has_errors"] = true;
                 $this->viewData["general_errors"] = "La gestión no puede ir vacía!";
             }
         } else {
-            throw new Exception("gestionES not present in form");
+            throw new Exception("tipogestion not present in form");
         }
 
 
         //LECTURA DE inventarioEquipoES DE ENTRADAS Y SALIDAS
-        if(isset($_POST["inventarioEquipoES"])){
-            if(\Utilities\Validators::IsEmpty($_POST["inventarioEquipoES"])){
+        if(isset($_POST["invEquipoGestion"])){
+            if(\Utilities\Validators::IsEmpty($_POST["invEquipoGestion"])){
                 $this->viewData["has_errors"] = true;
                 $this->viewData["general_errors"]= "El inventario no puede ir vacío!";
             }
         } else {
-            throw new Exception("inventarioEquipoES not present in form");
+            throw new Exception("invEquipoGestion not present in form");
         }
 
 
         //LECTURA DE nomEquipo DE ENTRADAS Y SALIDAS
-        if(isset($_POST["nomEquipo"])){
-            if(\Utilities\Validators::IsEmpty($_POST["nomEquipo"])){
+        if(isset($_POST["nomEquipoGestion"])){
+            if(\Utilities\Validators::IsEmpty($_POST["nomEquipoGestion"])){
                 $this->viewData["has_errors"] = true;
                 $this->viewData["general_errors"] = "El nombre no puede ir vacío!";
             }
         } else {
-            throw new Exception("nomEquipo not present in form");
+            throw new Exception("nomEquipoGestion not present in form");
         }
 
 
         //LECTURA DE categoria DE ENTRADAS Y SALIDAS
-        if(isset($_POST["categoria"])){
-            if(\Utilities\Validators::IsEmpty($_POST["categoria"])){
+        if(isset($_POST["categoriaGestion"])){
+            if(\Utilities\Validators::IsEmpty($_POST["categoriaGestion"])){
                 $this->viewData["has_errors"] = true;
-                $this->viewData["general_errors"] = "La categoria no puede ir vacía!";
+                $this->viewData["general_errors"] = "La categoriaGestion no puede ir vacía!";
             }
         } else {
-            throw new Exception("categoria not present in form");
+            throw new Exception("categoriaGestion not present in form");
         }
 
 
         //LECTURA DE descripcion DE ENTRADAS Y SALIDAS
-        if(isset($_POST["descripcion"])){
-            if(\Utilities\Validators::IsEmpty($_POST["descripcion"])){
+        if(isset($_POST["descripcionGestion"])){
+            if(\Utilities\Validators::IsEmpty($_POST["descripcionGestion"])){
                 $this->viewData["has_errors"] = true;
-                $this->viewData["general_errors"] = "La descripcion no puede ir vacía!";
+                $this->viewData["general_errors"] = "La descripcionGestion no puede ir vacía!";
             }
         } else {
-            throw new Exception("descripcion not present in form");
+            throw new Exception("descripcionGestion not present in form");
         }
 
 
         //LECTURA DE filial DE ENTRADAS Y SALIDAS
-        if(isset($_POST["filial"])){
-            if(\Utilities\Validators::IsEmpty($_POST["filial"])){
+        if(isset($_POST["filialGestion"])){
+            if(\Utilities\Validators::IsEmpty($_POST["filialGestion"])){
                 $this->viewData["has_errors"] = true;
-                $this->viewData["general_errors"] = "La filial no puede ir vacía!";
+                $this->viewData["general_errors"] = "La filialGestion no puede ir vacía!";
             }
         } else {
-            throw new Exception("filial not present in form");
+            throw new Exception("filialGestion not present in form");
         }
 
 
         //LECTURA DE departamento DE ENTRADAS Y SALIDAS
-        if(isset($_POST["departamento"])){
-            if(\Utilities\Validators::IsEmpty($_POST["departamento"])){
+        if(isset($_POST["departamentoGestion"])){
+            if(\Utilities\Validators::IsEmpty($_POST["departamentoGestion"])){
                 $this->viewData["has_errors"] = true;
-                $this->viewData["general_errors"] = "El departamento no puede ir vacío!";
+                $this->viewData["general_errors"] = "El departamentoGestion no puede ir vacío!";
             }
         } else {
-            throw new Exception("departamento not present in form");
+            throw new Exception("departamentoGestion not present in form");
         }
 
 
         //LECTURA DE asignado DE ENTRADAS Y SALIDAS
-        if(isset($_POST["asignado"])){
-            if(\Utilities\Validators::IsEmpty($_POST["asignado"])){
+        if(isset($_POST["asignadoGestion"])){
+            if(\Utilities\Validators::IsEmpty($_POST["asignadoGestion"])){
                 $this->viewData["has_errors"] = true;
-                $this->viewData["general_errors"] = "El nombre de asignado no puede ir vacío!";
+                $this->viewData["general_errors"] = "El nombre de asignadoGestion no puede ir vacío!";
             }
         } else {
-            throw new Exception("asignado not present in form");
+            throw new Exception("asignadoGestion not present in form");
         }
 
 
 
-
-
-        if(isset($_POST["mode"])){
-            if(!key_exists($_POST["mode"], $this->modes)){
-                throw new Exception("mode has a bad value");
+        if(isset($_POST["gestioncod"])){
+            if(($this->viewData["mode"] !== "INS" && intval($_POST["gestioncod"])<=0)){
+                throw new Exception("gestioncod is not Valid");
             }
-            if($this->viewData["mode"]!== $_POST["mode"]){
-                throw new Exception("mode value is different from query");
+            if($this->viewData["gestioncod"]!== intval($_POST["gestioncod"])){
+                throw new Exception("gestioncod value is different from query");
             }
         }else {
-            throw new Exception("mode not present in form");
+            throw new Exception("gestioncod not present in form");
         }
-
-
-
-        if(isset($_POST["idEntradasalida"])){
-            if(($this->viewData["mode"] !== "INS" && intval($_POST["idEntradasalida"])<=0)){
-                throw new Exception("idEntradasalida is not Valid");
-            }
-            if($this->viewData["idEntradasalida"]!== intval($_POST["idEntradasalida"])){
-                throw new Exception("idEntradasalida value is different from query");
-            }
-        }else {
-            throw new Exception("idEntradasalida not present in form");
-        }
-        $this->viewData["gestionES"]= $_POST["gestionES"];
-        if($this->viewData["mode"]!=="DEL"){
-            $this->viewData["gestionES"]= $_POST["gestionES"];
-        }
-
-        $this->viewData["inventarioEquipoES"]= $_POST["inventarioEquipoES"];
-        if($this->viewData["mode"]!=="DEL"){
-            $this->viewData["inventarioEquipoES"]= $_POST["inventarioEquipoES"];
-        }
-
-        $this->viewData["nomEquipo"]= $_POST["nomEquipo"];
-        if($this->viewData["mode"]!=="DEL"){
-            $this->viewData["nomEquipo"]= $_POST["nomEquipo"];
-        }
-
-        $this->viewData["categoria"]= $_POST["categoria"];
-        if($this->viewData["mode"]!=="DEL"){
-            $this->viewData["categoria"]= $_POST["categoria"];
-        }
-
-        $this->viewData["descripcion"]= $_POST["descripcion"];
-        if($this->viewData["mode"]!=="DEL"){
-            $this->viewData["descripcion"]= $_POST["descripcion"];
-        }
-
-        $this->viewData["filial"]= $_POST["filial"];
-        if($this->viewData["mode"]!=="DEL"){
-            $this->viewData["filial"]= $_POST["filial"];
-        }
-
-        $this->viewData["departamento"]= $_POST["departamento"];
-        if($this->viewData["mode"]!=="DEL"){
-            $this->viewData["departamento"]= $_POST["departamento"];
-        }
-
-        $this->viewData["asignado"]= $_POST["asignado"];
-        if($this->viewData["mode"]!=="DEL"){
-            $this->viewData["asignado"]= $_POST["asignado"];
-        }
+        $this->viewData["tipogestion"]= $_POST["tipogestion"];
+        $this->viewData["invEquipoGestion"]= $_POST["invEquipoGestion"];
+        $this->viewData["nomEquipoGestion"]= $_POST["nomEquipoGestion"];
+        $this->viewData["categoriaGestion"]= $_POST["categoriaGestion"];
+        $this->viewData["descripcionGestion"]= $_POST["descripcionGestion"];
+        $this->viewData["filialGestion"]= $_POST["filialGestion"];
+        $this->viewData["departamentoGestion"]= $_POST["departamentoGestion"];
+        $this->viewData["asignadoGestion"]= $_POST["asignadoGestion"];
     }
 
 
@@ -270,14 +224,14 @@ class Gestion extends PrivateController{
         switch($this->viewData["mode"]){
             case "INS":
                 $inserted = \Dao\Mnt\Gestiones::insert(
-                    $this->viewData["gestionES"],
-                    $this->viewData["inventarioEquipoES"],
-                    $this->viewData["nomEquipo"],
-                    $this->viewData["categoria"],
-                    $this->viewData["descripcion"],
-                    $this->viewData["filial"],
-                    $this->viewData["departamento"],
-                    $this->viewData["asignado"]
+                    $this->viewData["tipogestion"],
+                    $this->viewData["invEquipoGestion"],
+                    $this->viewData["nomEquipoGestion"],
+                    $this->viewData["categoriaGestion"],
+                    $this->viewData["descripcionGestion"],
+                    $this->viewData["filialGestion"],
+                    $this->viewData["departamentoGestion"],
+                    $this->viewData["asignadoGestion"]
                 );
                 if($inserted > 0){
                     \Utilities\Site::redirectToWithMsg(
@@ -288,15 +242,16 @@ class Gestion extends PrivateController{
                 break;
             case "UPD":
                 $updated = \Dao\Mnt\Gestiones::update(
-                    $this->viewData["gestionES"],
-                    $this->viewData["inventarioEquipoES"],
-                    $this->viewData["nomEquipo"],
-                    $this->viewData["categoria"],
-                    $this->viewData["descripcion"],
-                    $this->viewData["filial"],
-                    $this->viewData["departamento"],
-                    $this->viewData["asignado"],
-                    $this->viewData["idEntradasalida"]
+                    $this->viewData["gestioncod"],
+                    $this->viewData["tipogestion"],
+                    $this->viewData["invEquipoGestion"],
+                    $this->viewData["nomEquipoGestion"],
+                    $this->viewData["categoriaGestion"],
+                    $this->viewData["descripcionGestion"],
+                    $this->viewData["filialGestion"],
+                    $this->viewData["departamentoGestion"],
+                    $this->viewData["asignadoGestion"]
+                    
                 );
                 if($updated > 0){
                     \Utilities\Site::redirectToWithMsg(
@@ -307,7 +262,7 @@ class Gestion extends PrivateController{
                 break;
             case "DEL":
                 $deleted = \Dao\Mnt\Gestiones::delete(
-                    $this->viewData["idEntradasalida"]
+                    $this->viewData["gestioncod"]
                 );
                 if($deleted > 0){
                     \Utilities\Site::redirectToWithMsg(
@@ -326,24 +281,24 @@ class Gestion extends PrivateController{
         if($this->viewData["mode"] === "INS") {
             $this->viewData["modedsc"] = $this->modes["INS"];
         } else {
-            $tmpGestiones = \Dao\Mnt\Gestiones::findById($this->viewData["idEntradasalida"]);
+            $tmpGestiones = \Dao\Mnt\Gestiones::findById($this->viewData["gestioncod"]);
             if(!$tmpGestiones){
-                throw new Exception("Filial no existe en DB");
+                throw new Exception("Gestion no existe en DB");
             }
             
             \Utilities\ArrUtils::mergeFullArrayTo($tmpGestiones, $this->viewData);
             
             $this->viewData["modedsc"] = sprintf(
                 $this->modes[$this->viewData["mode"]],
-                $this->viewData["gestionEoS"],
-                    $this->viewData["inventarioEquipoES"],
-                    $this->viewData["nomEquipo"],
-                    $this->viewData["categoria"],
-                    $this->viewData["descripcion"],
-                    $this->viewData["filial"],
-                    $this->viewData["departamento"],
-                    $this->viewData["asignado"],
-                    $this->viewData["idEntradasalida"]
+                    $this->viewData["tipogestion"],
+                    $this->viewData["invEquipoGestion"],
+                    $this->viewData["nomEquipoGestion"],
+                    $this->viewData["categoriaGestion"],
+                    $this->viewData["descripcionGestion"],
+                    $this->viewData["filialGestion"],
+                    $this->viewData["departamentoGestion"],
+                    $this->viewData["asignadoGestion"],
+                    $this->viewData["gestioncod"]
             );
             
             if(in_array($this->viewData["mode"], array("DSP","DEL"))){
