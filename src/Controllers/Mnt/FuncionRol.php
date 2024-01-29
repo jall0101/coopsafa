@@ -1,6 +1,8 @@
 <?php
-namespace Controllers\Mnt;
 
+
+
+namespace Controllers\Mnt;
 use Controllers\PrivateController;
 use Controllers\PublicController;
 use Exception;
@@ -61,9 +63,10 @@ class FuncionRol extends PrivateController{
                 "Algo Inesperado Sucedió. Intente de Nuevo :("
             );
         }
-       
-
     }
+
+
+
     private function page_loaded()
     {
         if(isset($_GET['mode'])){
@@ -91,6 +94,9 @@ class FuncionRol extends PrivateController{
             }
         }
     }
+
+
+
     private function validatePostData(){
         if(isset($_POST["xssToken"])){
             if(isset($_SESSION["xssToken_Mnt_FuncionRol"])){
@@ -103,7 +109,9 @@ class FuncionRol extends PrivateController{
         } else {
             throw new Exception("Invalid xss Token");
         }
-      
+
+
+
 
         if(isset($_POST["fnrolest"])){
             if (!in_array( $_POST["fnrolest"], array("ACT","INA"))){
@@ -114,7 +122,6 @@ class FuncionRol extends PrivateController{
                 throw new Exception("fnrolest not present in form");
             }
         }
-        
         if(isset($_POST["mode"])){
             if(!key_exists($_POST["mode"], $this->modes)){
                 throw new Exception("mode has a bad value");
@@ -132,7 +139,6 @@ class FuncionRol extends PrivateController{
         }else {
             throw new Exception("rolescod not present in form");
         }
-
         if(isset($_POST["fncod"])){            
             if($this->viewData["fncod"]!== $_POST["fncod"] && $this->viewData["mode"] !== "INS"){
                 throw new Exception("fncod value is different from query");
@@ -140,21 +146,18 @@ class FuncionRol extends PrivateController{
         }else {
             throw new Exception("fncod not present in form");
         }
-
         $this->viewData["fnexp"] = $_POST["fnexp"];
-
-
         if($this->viewData["mode"] === "INS"){
             $this->viewData["rolescod"] = $_POST["rolescoddummy"];
             $this->viewData["fncod"] = $_POST["fncoddummy"];
-            
-        }        
-              
+        }         
         if($this->viewData["mode"]!=="DEL"){
             $this->viewData["fnrolest"] = $_POST["fnrolest"];
         }
-        
     }
+
+
+
     private function executeAction(){
         switch($this->viewData["mode"]){
             case "INS":
@@ -199,6 +202,9 @@ class FuncionRol extends PrivateController{
                 break;
         }
     }
+
+
+
     private function render(){
         $xssToken = md5("FUNCIONROL" . rand(0,4000) * rand(5000,9999));
         $this-> viewData["xssToken"] = $xssToken;
@@ -209,8 +215,7 @@ class FuncionRol extends PrivateController{
         } else {
             $tmpFuncionesRoles = \Dao\Mnt\FuncionesRoles::findById(
                 $this->viewData["rolescod"],
-                 $this->viewData["fncod"]);
-                 
+                $this->viewData["fncod"]);
             if(!$tmpFuncionesRoles){
                 throw new Exception("FuncionRol no existe en DB");
             }

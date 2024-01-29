@@ -1,6 +1,6 @@
 <?php
-namespace Controllers\Mnt;
 
+namespace Controllers\Mnt;
 use Controllers\PrivateController;
 use Exception;
 use Views\Renderer;
@@ -34,6 +34,7 @@ class Rol extends PrivateController{
         "UPD" => "mnt_roles_edit",
         "DEL" => "mnt_roles_delete"
     );
+
     public function run() :void
     {
         try {
@@ -53,9 +54,10 @@ class Rol extends PrivateController{
                 "Algo Inesperado Sucedió. Intente de Nuevo."
             );
         }
-       
-
     }
+
+
+
     private function page_loaded()
     {
         if(isset($_GET['mode'])){
@@ -75,6 +77,9 @@ class Rol extends PrivateController{
             }
         }
     }
+
+
+
     private function validatePostData(){
         if(isset($_POST["xssToken"])){
             if(isset($_SESSION["xssToken_Mnt_Rol"])){
@@ -127,12 +132,14 @@ class Rol extends PrivateController{
             $this->viewData["rolescod"] = $_POST["rolescoddummy"];       
             
         }        
-         
         $this->viewData["rolesdsc"] = $_POST["rolesdsc"];        
         if($this->viewData["mode"]!=="DEL"){
             $this->viewData["rolesest"] = $_POST["rolesest"];
         }
     }
+
+
+
     private function executeAction(){
         switch($this->viewData["mode"]){
             case "INS":
@@ -174,6 +181,9 @@ class Rol extends PrivateController{
                 break;
         }
     }
+
+
+    
     private function render(){
         $xssToken = md5("ROL" . rand(0,4000) * rand(5000,9999));
         $this-> viewData["xssToken"] = $xssToken;

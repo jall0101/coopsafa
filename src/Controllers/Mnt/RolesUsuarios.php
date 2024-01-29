@@ -1,6 +1,6 @@
 <?php
-namespace Controllers\Mnt;
 
+namespace Controllers\Mnt;
 use Controllers\PrivateController;
 use Views\Renderer;
 

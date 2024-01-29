@@ -1,4 +1,5 @@
 <?php
+
 namespace Controllers\Mnt;
 use Controllers\PrivateController;
 use Exception;
@@ -126,6 +127,10 @@ class Marca extends PrivateController{
             $this->viewData["nombremarca"] = $_POST["nombremarca"];
         }
     }
+
+
+
+
     private function executeAction(){
         switch($this->viewData["mode"]){
             case "INS":
@@ -164,6 +169,10 @@ class Marca extends PrivateController{
                 break;
         }
     }
+
+
+
+    
     private function render(){
         $xssToken = md5("MARCA" . rand(0,4000) * rand(5000, 9999));
         $this->viewData["xssToken"] = $xssToken;

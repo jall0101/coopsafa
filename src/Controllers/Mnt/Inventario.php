@@ -134,9 +134,6 @@ class Inventario extends PrivateController{
 
 
 
-
-        
-       
         //VALIDACIÓN NUMERO DE INVENTARIO
         if(isset($_POST["numInventario"])){
             if(\Utilities\Validators::IsEmpty($_POST["numInventario"])){
@@ -146,6 +143,7 @@ class Inventario extends PrivateController{
         } else {
             throw new Exception("numInventario not present in form");
         }
+
 
         //VALIDACIÓN NOMBRE DE EQUIPO
         if(isset($_POST["nomEquipo"])){
@@ -207,9 +205,10 @@ class Inventario extends PrivateController{
         $this->viewData["categoriaEquipo"]= $_POST["categoriaEquipo"];    
         $this->viewData["descripcionEquipo"]= $_POST["descripcionEquipo"];
         $this->viewData["filialEquipo"]= $_POST["filialEquipo"];
-
-
     }
+
+
+
     private function executeAction(){
         switch($this->viewData["mode"]){
             case "INS":
@@ -259,6 +258,9 @@ class Inventario extends PrivateController{
                 break;
         }
     }
+
+
+    
     private function render(){
         $xssToken = md5("INVENTARIO" . rand(0,4000) * rand(5000,9999));
         $this-> viewData["xssToken"] = $xssToken;

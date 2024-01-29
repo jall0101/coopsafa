@@ -1,6 +1,6 @@
 <?php
-namespace Controllers\Mnt;
 
+namespace Controllers\Mnt;
 use Controllers\PrivateController;
 use Exception;
 use Views\Renderer;
@@ -38,6 +38,9 @@ class Funcion extends PrivateController{
         "UPD" => "mnt_funciones_edit",
         "DEL" => "mnt_funciones_delete"
     );
+
+
+
     public function run() :void
     {
         try {
@@ -57,9 +60,10 @@ class Funcion extends PrivateController{
                 "Algo Inesperado Sucedió. Intente de Nuevo."
             );
         }
-       
-
     }
+
+
+
     private function page_loaded()
     {
         if(isset($_GET['mode'])){
@@ -82,6 +86,8 @@ class Funcion extends PrivateController{
             }
         }
     }
+
+
     private function validatePostData(){
         if(isset($_POST["xssToken"])){
             if(isset($_SESSION["xssToken_Mnt_Funcion"])){
@@ -130,6 +136,8 @@ class Funcion extends PrivateController{
         }else {
             throw new Exception("mode not present in form");
         }
+
+
         if(isset($_POST["fncod"])){            
             if($this->viewData["fncod"]!== $_POST["fncod"] && $this->viewData["mode"] !== "INS"){
                 throw new Exception("fncod value is different from query");
@@ -141,8 +149,6 @@ class Funcion extends PrivateController{
             $this->viewData["fncod"] = $_POST["fncoddummy"];       
             
         }
-        
-         
         $this->viewData["fndsc"] = $_POST["fndsc"];        
         if($this->viewData["mode"]!=="DEL"){
             $this->viewData["fnest"] = $_POST["fnest"];
@@ -151,6 +157,9 @@ class Funcion extends PrivateController{
             $this->viewData["fntyp"] = $_POST["fntyp"];
         }
     }
+
+
+
     private function executeAction(){
         switch($this->viewData["mode"]){
             case "INS":
@@ -194,6 +203,10 @@ class Funcion extends PrivateController{
                 break;
         }
     }
+
+
+
+    
     private function render(){
         $xssToken = md5("FUNCION" . rand(0,4000) * rand(5000,9999));
         $this-> viewData["xssToken"] = $xssToken;

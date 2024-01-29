@@ -1,18 +1,10 @@
 <?php
-namespace Controllers\Mnt;
 
+namespace Controllers\Mnt;
 use Controllers\PrivateController;
 use Exception;
 use Views\Renderer;
-/*
-/*
-CREATE TABLE `roles_usuarios` (
-  `usercod` bigint(10) NOT NULL,
-  `rolescod` varchar(15) NOT NULL,
-  `roleuserest` char(3) DEFAULT NULL,
-  `roleuserfch` datetime DEFAULT NULL,
-  `roleuserexp` datetime DEFAULT NULL,
-*/
+
 
 class RolesUsuario extends PrivateController{
     private $redirectTo = "index.php?page=Mnt-RolesUsuarios";
@@ -43,6 +35,8 @@ class RolesUsuario extends PrivateController{
         "UPD" => "mnt_rolesUsuarios_edit",
         "DEL" => "mnt_rolesUsuarios_delete"
     );
+
+
     public function run() :void
     {
         try {
@@ -62,9 +56,10 @@ class RolesUsuario extends PrivateController{
                 "Algo Inesperado Sucedió. Intente de Nuevo."
             );
         }
-       
-
     }
+
+
+
     private function page_loaded()
     {
         if(isset($_GET['mode'])){
@@ -89,6 +84,9 @@ class RolesUsuario extends PrivateController{
             }
         }
     }
+
+
+
     private function validatePostData(){
         if(isset($_POST["xssToken"])){
             if(isset($_SESSION["xssToken_Mnt_RolesUsuarios"])){
@@ -101,8 +99,6 @@ class RolesUsuario extends PrivateController{
         } else {
             throw new Exception("Invalid xss Token");
         }
-       
-        
         if(isset($_POST["mode"])){
             if(!key_exists($_POST["mode"], $this->modes)){
                 throw new Exception("mode has a bad value");
@@ -130,14 +126,15 @@ class RolesUsuario extends PrivateController{
         if($this->viewData["mode"] === "INS"){
             $this->viewData["usercod"] = $_POST["usercoddummy"];   
             $this->viewData["rolescod"] = $_POST["rolescoddummy"];       
-            
-        }     
-        
+        }
         $this->viewData["roleuserexp"] = $_POST["roleuserexp"];
         if($this->viewData["mode"]!=="DEL"){
             $this->viewData["roleuserest"] = $_POST["roleuserest"];
         }
     }
+
+
+
     private function executeAction(){
         switch($this->viewData["mode"]){
             case "INS":
@@ -180,11 +177,13 @@ class RolesUsuario extends PrivateController{
                 }
     }
 }
+
+
+
     private function render(){
         $xssToken = md5("ROLES_USUARIO" . rand(0,4000) * rand(5000,9999));
         $this-> viewData["xssToken"] = $xssToken;
         $_SESSION["xssToken_Mnt_RolesUsuarios"] = $xssToken;
-
         if($this->viewData["mode"] === "INS") {
             $this->viewData["modedsc"] = $this->modes["INS"];
         } else {

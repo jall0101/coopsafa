@@ -1,4 +1,5 @@
 <?php
+
 namespace Controllers\Mnt;
 use Controllers\PrivateController;
 use Exception;
@@ -30,6 +31,9 @@ class Departamento extends PrivateController{
         "UPD" => "mnt_departamentos_edit",
         "DEL" => "mnt_departamentos_delete"
     );
+
+
+
     public function run() :void
     {
         try {
@@ -75,6 +79,7 @@ class Departamento extends PrivateController{
         }
     }
 
+
     private function validatePostData(){
         if(isset($_POST["xssToken"])){
             if(isset($_SESSION["xssToken_Mnt_Departamento"])){
@@ -97,6 +102,7 @@ class Departamento extends PrivateController{
         }
 
 
+
         if(isset($_POST["mode"])){
             if(!key_exists($_POST["mode"], $this->modes)){
                 throw new Exception("mode has a bad value");
@@ -107,6 +113,7 @@ class Departamento extends PrivateController{
         }else {
             throw new Exception("mode not present in form");
         }
+
 
         
         if(isset($_POST["departamentocod"])){
@@ -124,6 +131,8 @@ class Departamento extends PrivateController{
             $this->viewData["nombredepartamento"] = $_POST["nombredepartamento"];
         }
     }
+
+
     private function executeAction(){
         switch($this->viewData["mode"]){
             case "INS":
@@ -162,6 +171,8 @@ class Departamento extends PrivateController{
                 break;
         }
     }
+
+    
     private function render(){
         $xssToken = md5("DEPARTAMENTO" . rand(0,4000) * rand(5000, 9999));
         $this->viewData["xssToken"] = $xssToken;

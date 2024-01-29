@@ -1,6 +1,6 @@
 <?php
-namespace Controllers\Mnt;
 
+namespace Controllers\Mnt;
 use Controllers\PrivateController;
 use Exception;
 use Views\Renderer;
@@ -71,9 +71,10 @@ class Usuario extends PrivateController
                 "Algo Inesperado Sucedió. Intente de Nuevo."
             );
         }
-
-
     }
+
+
+
     private function page_loaded()
     {
         if (isset($_GET['mode'])) {
@@ -97,6 +98,9 @@ class Usuario extends PrivateController
             }
         }
     }
+
+
+
     private function validatePostData()
     {
         if (isset($_POST["xssToken"])) {
@@ -205,6 +209,9 @@ class Usuario extends PrivateController
             $this->viewData["usertipo"] = $_POST["usertipo"];
         }
     }
+
+
+
     private function executeAction()
     {
         switch ($this->viewData["mode"]) {
@@ -254,6 +261,9 @@ class Usuario extends PrivateController
                 break;
         }
     }
+
+
+
     private function render()
     {
         $xssToken = md5("Usuario" . rand(0, 4000) * rand(5000, 9999));
@@ -290,5 +300,4 @@ class Usuario extends PrivateController
         Renderer::render("mnt/usuario", $this->viewData);
     }
 }
-
 ?>

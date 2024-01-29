@@ -248,6 +248,9 @@ class Gestion extends PrivateController{
                 break;
         }
     }
+
+
+    
     private function render(){
         $xssToken = md5("GESTION" . rand(0,4000) * rand(5000, 9999));
         $this->viewData["xssToken"] = $xssToken;

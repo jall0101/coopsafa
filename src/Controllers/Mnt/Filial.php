@@ -80,6 +80,7 @@ class Filial extends PrivateController{
     }
 
 
+
     private function validatePostData(){
         if(isset($_POST["xssToken"])){
             if(isset($_SESSION["xssToken_Mnt_Filial"])){
@@ -92,6 +93,8 @@ class Filial extends PrivateController{
         } else {
             throw new Exception("Invalid Xss Token");
         }
+
+
         if(isset($_POST["nombreFilial"])){
             if(\Utilities\Validators::IsEmpty($_POST["nombreFilial"])){
                 $this->viewData["has_errors"] = true;
@@ -110,6 +113,9 @@ class Filial extends PrivateController{
         }else {
             throw new Exception("mode not present in form");
         }
+
+
+
         if(isset($_POST["filialcod"])){
             if(($this->viewData["mode"] !== "INS" && intval($_POST["filialcod"])<=0)){
                 throw new Exception("filialcod is not Valid");
@@ -125,6 +131,9 @@ class Filial extends PrivateController{
             $this->viewData["nombreFilial"] = $_POST["nombreFilial"];
         }
     }
+
+
+
     private function executeAction(){
         switch($this->viewData["mode"]){
             case "INS":
@@ -163,6 +172,9 @@ class Filial extends PrivateController{
                 break;
         }
     }
+
+
+    
     private function render(){
         $xssToken = md5("FILIAL" . rand(0,4000) * rand(5000, 9999));
         $this->viewData["xssToken"] = $xssToken;

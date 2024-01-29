@@ -1,4 +1,5 @@
 <?php
+
 namespace Controllers\Mnt;
 use Controllers\PrivateController;
 use Exception;
@@ -20,6 +21,8 @@ class Asignado extends PrivateController{
         "readonly" => false,
         "xssToken" =>""
     );
+
+
     private $modes = array(
         "DSP" => "Detalle de %s (%s)",
         "INS" => "Nuevo Asignado",
@@ -32,6 +35,8 @@ class Asignado extends PrivateController{
         "UPD" => "mnt_asignados_edit",
         "DEL" => "mnt_asignados_delete"
     );
+
+
     public function run() :void
     {
         try {
@@ -142,6 +147,8 @@ class Asignado extends PrivateController{
             $this->viewData["nombreAsignado"] = $_POST["nombreAsignado"];
         }
     }
+
+
     private function executeAction(){
         switch($this->viewData["mode"]){
             case "INS":
@@ -217,5 +224,4 @@ class Asignado extends PrivateController{
         Renderer::render("mnt/asignado", $this->viewData);
     }
 }
-
 ?>

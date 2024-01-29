@@ -1,6 +1,6 @@
 <?php
-namespace Controllers\Mnt;
 
+namespace Controllers\Mnt;
 use Controllers\PrivateController;
 use Views\Renderer;
 
@@ -12,7 +12,6 @@ class Departamentos extends PrivateController {
             "departamentos_edit"=>$this->isFeatureAutorized('mnt_departamentos_edit'),
             "departamentos_delete"=>$this->isFeatureAutorized('mnt_departamentos_delete'),
             "departamentos_new"=>$this->isFeatureAutorized('mnt_departamentos_new')
-
         );
         $viewData["departamentos"] = \Dao\Mnt\Departamentos::findAll();
         Renderer::render('mnt/departamentos', $viewData);
