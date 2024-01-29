@@ -4,12 +4,13 @@
     method="POST"
     class="col-6 col-3-offset"
   >
+
     <section class="row">
-        <label for="departamentocod" class="col-4">Código</label>
-        <input type="hidden" id="departamentocod" name="departamentocod" value="{{departamentocod}}"/>
-        <input type="hidden" id="mode" name="mode" value="{{mode}}"/>
-        <input type="hidden"  name="xssToken" value="{{xssToken}}"/>
-        <input type="text" readonly name="departamentocoddummy" value="{{departamentocod}}"/>
+      <label for="departamentocod" class="col-4">Código</label>
+      <input type="hidden" id="departamentocod" name="departamentocod" value="{{departamentocod}}"/>
+      <input type="hidden" id="mode" name="mode" value="{{mode}}"/>
+      <input type="hidden"  name="xssToken" value="{{xssToken}}"/>
+      <input type="text" readonly name="departamentocoddummy" value="{{departamentocod}}"/>
     </section>
 
 
@@ -46,10 +47,10 @@
 
 <script>
   document.addEventListener("DOMContentLoaded", function(){
-      document.getElementById("btnCancelar").addEventListener("click", function(e){
-        e.preventDefault();
-        e.stopPropagation();
-        window.location.assign("index.php?page=Mnt_Departamentos");
+    document.getElementById("btnCancelar").addEventListener("click", function(e){
+      e.preventDefault();
+      e.stopPropagation();
+      window.location.assign("index.php?page=Mnt_Departamentos");
       });
   });
 </script>

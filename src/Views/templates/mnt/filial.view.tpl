@@ -6,11 +6,11 @@
     class="col-6 col-3-offset"
   >
     <section class="row">
-        <label for="filialcod" class="col-4">Código</label>
-        <input type="hidden" id="filialcod" name="filialcod" value="{{filialcod}}"/>
-        <input type="hidden" id="mode" name="mode" value="{{mode}}"/>
-        <input type="hidden"  name="xssToken" value="{{xssToken}}"/>
-        <input type="text" readonly name="filialcoddummy" value="{{filialcod}}"/>
+      <label for="filialcod" class="col-4">Código</label>
+      <input type="hidden" id="filialcod" name="filialcod" value="{{filialcod}}"/>
+      <input type="hidden" id="mode" name="mode" value="{{mode}}"/>
+      <input type="hidden"  name="xssToken" value="{{xssToken}}"/>
+      <input type="text" readonly name="filialcoddummy" value="{{filialcod}}"/>
     </section>
 
 
@@ -47,10 +47,10 @@
 
 <script>
   document.addEventListener("DOMContentLoaded", function(){
-      document.getElementById("btnCancelar").addEventListener("click", function(e){
-        e.preventDefault();
-        e.stopPropagation();
-        window.location.assign("index.php?page=Mnt_Filiales");
-      });
+    document.getElementById("btnCancelar").addEventListener("click", function(e){
+      e.preventDefault();
+      e.stopPropagation();
+      window.location.assign("index.php?page=Mnt_Filiales");
+    });
   });
 </script>

@@ -1,7 +1,7 @@
 <h1>Gestión de Usuarios</h1>
-<section class="WWFilter">
+<section class="WWFilter"></section>
 
-</section>
+
 <section class="WWList table-responsive">
   <table class="table table-striped table-hover tb-align">
     <thead>
@@ -34,15 +34,15 @@
           {{ifnot ~usuarios_view}}
             {{descripciontalla}}
           {{endifnot ~usuarios_view}}
-
         </td>
-
         <td>{{username}}</td>
         <td>{{userfching}}</td>
         <td>{{userpswdest}}</td>
         <td>{{userpswdexp}}</td>
         <td>{{userest}}</td>
         <td>{{usertipo}}</td>
+
+
         <td>
           {{if ~usuarios_edit}}
           <form action="index.php" method="get">
@@ -51,8 +51,10 @@
             <input type="hidden" name="usercod" value={{usercod}} />
             <button type="submit" class="bg-success"><i class="fa-solid fa-pen-to-square fa-lg"></i></button>
           </form>
+
           {{endif ~usuarios_edit}} <br>
           {{if ~usuarios_delete}}
+
           <form action="index.php" method="get">
             <input type="hidden" name="page" value="mnt_usuario"/>
             <input type="hidden" name="mode" value="DEL" />
@@ -67,11 +69,13 @@
   </table>
 </section>
 <script>
-   document.addEventListener("DOMContentLoaded", function () {
-      document.getElementById("btnAdd").addEventListener("click", function (e) {
-        e.preventDefault();
-        e.stopPropagation();
-        window.location.assign("index.php?page=mnt_usuario&mode=INS&usercod=0");
-      });
+
+
+  document.addEventListener("DOMContentLoaded", function () {
+    document.getElementById("btnAdd").addEventListener("click", function (e) {
+      e.preventDefault();
+      e.stopPropagation();
+      window.location.assign("index.php?page=mnt_usuario&mode=INS&usercod=0");
     });
+  });
 </script>

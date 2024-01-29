@@ -5,12 +5,13 @@
     class="col-6 col-3-offset"
   >
     <section class="row">
-        <label for="marcacod" class="col-4">Código</label>
-        <input type="hidden" id="marcacod" name="marcacod" value="{{marcacod}}"/>
-        <input type="hidden" id="mode" name="mode" value="{{mode}}"/>
-        <input type="hidden"  name="xssToken" value="{{xssToken}}"/>
-        <input type="text" readonly name="marcacoddummy" value="{{marcacod}}"/>
+      <label for="marcacod" class="col-4">Código</label>
+      <input type="hidden" id="marcacod" name="marcacod" value="{{marcacod}}"/>
+      <input type="hidden" id="mode" name="mode" value="{{mode}}"/>
+      <input type="hidden"  name="xssToken" value="{{xssToken}}"/>
+      <input type="text" readonly name="marcacoddummy" value="{{marcacod}}"/>
     </section>
+
 
 
     <section class="row">
@@ -24,24 +25,24 @@
 
 
     {{if has_errors}}
-        <section>
-          <ul>
-            {{foreach general_errors}}
-                <li>{{this}}</li>
-            {{endfor general_errors}}
-          </ul>
-        </section>
+      <section>
+        <ul>
+          {{foreach general_errors}}
+            <li>{{this}}</li>
+          {{endfor general_errors}}
+        </ul>
+      </section>
     {{endif has_errors}}
 
 
     <section>
       {{if show_action}}
-      <button type="submit" name="btnGuardar" class="bg-dark text-white" value="G"><i class="fa-regular fa-floppy-disk" style="color: #ffffff;"></i>&nbsp;&nbsp;Guardar</button>
+      <button type="submit" name="btnGuardar" class="bg-dark text-white" value="G">
+        <i class="fa-regular fa-floppy-disk" style="color: #ffffff;"></i>&nbsp;&nbsp;Guardar</button>
         &nbsp;&nbsp;&nbsp;
       {{endif show_action}}
       <button type="button" id="btnCancelar" class="bg-dark text-white"><i class="fa-solid fa-xmark"
-            style="color: #ffffff;"></i>&nbsp;&nbsp;Cancelar</button>
-      </section>
+        style="color: #ffffff;"></i>&nbsp;&nbsp;Cancelar</button>
     </section>
   </form>
 </section>
@@ -49,10 +50,10 @@
 
 <script>
   document.addEventListener("DOMContentLoaded", function(){
-      document.getElementById("btnCancelar").addEventListener("click", function(e){
-        e.preventDefault();
-        e.stopPropagation();
-        window.location.assign("index.php?page=Mnt_Marcas");
-      });
+    document.getElementById("btnCancelar").addEventListener("click", function(e){
+      e.preventDefault();
+      e.stopPropagation();
+      window.location.assign("index.php?page=Mnt_Marcas");
+    });
   });
 </script>

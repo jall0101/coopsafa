@@ -1,7 +1,6 @@
 <h1>Gestión de Roles</h1>
-<section class="WWFilter">
+<section class="WWFilter"></section>
 
-</section>
 <section class="WWList table-responsive">
   <table class="table table-striped table-hover tb-align">
     <thead>
@@ -12,11 +11,10 @@
 
         {{if roles_new}}
         <th>          
-          <button class="bg-dark rounded" id="btnAdd"><i class="fa-solid fa-plus" style="color: #ffffff;"></i></button>
-          
+          <button class="bg-dark rounded" id="btnAdd"><i class="fa-solid fa-plus" 
+            style="color: #ffffff;"></i></button>
         </th>
         {{endif roles_new}}
-        
       </tr>
     </thead>
 
@@ -27,7 +25,8 @@
         <td><b>{{rolescod}}</b></td>
         {{if ~roles_view}}
         <td><a class="text-decoration-none text-success font-weight-bold" 
-          href="index.php?page=mnt_rol&mode=DSP&rolescod={{rolescod}}">{{rolesdsc}}</a></td>
+          href="index.php?page=mnt_rol&mode=DSP&rolescod={{rolescod}}">{{rolesdsc}}</a>
+        </td>
         {{endif ~roles_view}}
           {{ifnot ~roles_view}}
           {{rolesdsc}}
@@ -43,6 +42,8 @@
             <button type="submit" class="bg-success"><i class="fa-solid fa-pen-to-square fa-lg"></i></button>
           </form>
           {{endif ~roles_edit}}
+
+
           {{if ~roles_delete}}
           <form action="index.php" method="get">
             <input type="hidden" name="page" value="mnt_rol"/>
@@ -59,11 +60,11 @@
 </section>
 
 <script>
-      document.addEventListener("DOMContentLoaded", function () {
-      document.getElementById("btnAdd").addEventListener("click", function (e) {
-        e.preventDefault();
-        e.stopPropagation();
-        window.location.assign("index.php?page=mnt_rol&mode=INS&rolescod=0");
-      });
+  document.addEventListener("DOMContentLoaded", function () {
+    document.getElementById("btnAdd").addEventListener("click", function (e) {
+      e.preventDefault();
+      e.stopPropagation();
+      window.location.assign("index.php?page=mnt_rol&mode=INS&rolescod=0");
     });
+  });
 </script>

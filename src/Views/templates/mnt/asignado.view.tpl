@@ -6,15 +6,14 @@
   >
 
   <!--ASIGNADO COD-->
-
-
-   <section class="row">
-        <label for="asignadocod" class="col-4">Código</label>
-        <input type="hidden" id="asignadocod" name="asignadocod" value="{{asignadocod}}"/>
-        <input type="hidden" id="mode" name="mode" value="{{mode}}"/>
-        <input type="hidden"  name="xssToken" value="{{xssToken}}"/>
-        <input type="text" readonly name="asignadocoddummy" value="{{asignadocod}}"/>
+    <section class="row">
+      <label for="asignadocod" class="col-4">Código</label>
+      <input type="hidden" id="asignadocod" name="asignadocod" value="{{asignadocod}}"/>
+      <input type="hidden" id="mode" name="mode" value="{{mode}}"/>
+      <input type="hidden"  name="xssToken" value="{{xssToken}}"/>
+      <input type="text" readonly name="asignadocoddummy" value="{{asignadocod}}"/>
     </section>
+
 
     <section class="row">
       <label for="nombreDepartamento" class="col-4">Departamento</label>
@@ -24,7 +23,8 @@
       {{endif nombreDepartamento_error}}
     </section>
     
-     <section class="row">
+    
+    <section class="row">
       <label for="nombreAsignado" class="col-4">Usuario Asignado</label>
       <input type="text" {{readonly}} name="nombreAsignado" value="{{nombreAsignado}}" maxlength="45" placeholder="Usuario Asignado"/>
       {{if nombreAsignado_error}}

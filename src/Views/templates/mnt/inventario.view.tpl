@@ -4,7 +4,8 @@
 <section class="container">
   <div class="row justify-content-center">
     <form action="index.php?page=Mnt_Inventario&mode={{mode}}&id={{id}}" method="POST"
-      class="col-10 align-self-center bg-gris_claro p-4 rounded" enctype="multipart/form-data">
+      class="col-10 align-self-center bg-gris_claro p-4 rounded" enctype="multipart/form-data"
+    >
 
 
       <!--CODIGO DE TABLA-->
@@ -96,27 +97,19 @@
       </section>
     </form>
   </div>
-
-
-
-
 </section>
 
- 
-      
 
 
 
 
   <script>
-  document.addEventListener("DOMContentLoaded", function () {
-    document.getElementById("btnCancelar").addEventListener("click", function (e) {
-      e.preventDefault();
-      e.stopPropagation();
-      window.location.assign("index.php?page=Mnt_Inventarios");
+    document.addEventListener("DOMContentLoaded", function () {
+      document.getElementById("btnCancelar").addEventListener("click", function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+        window.location.assign("index.php?page=Mnt_Inventarios");
+      });
     });
-  });
-</script>
-
-</section>
+  </script>
 

@@ -1,7 +1,7 @@
 <h1>Gestión de Inventario</h1>
-<section class="WWFilter">
+<section class="WWFilter"></section>
 
-</section>
+
 <section class="WWList table-responsive">
   <table class="table table-striped table-hover tb-align">
     <thead>
@@ -21,17 +21,17 @@
       </tr>
     </thead>
 
-    
+
+
+
     <tbody>
-      <!--DATOS DEL GRI DED ZAPATOS-->
+      <!--DATOS DEL GRID-->
       {{foreach inventarios}}
-
       <tr class="bg-white">
-         {{if ~inventarios_view}}
+        {{if ~inventarios_view}}
         <td><a class="text-decoration-none text-success font-weight-bold"
-           href="index.php?page=mnt_inventario&mode=DSP&id={{id}}">{{id}}</a></td>
-         {{endif ~inventarios_view}}
-
+        href="index.php?page=mnt_inventario&mode=DSP&id={{id}}">{{id}}</a></td>
+        {{endif ~inventarios_view}}
         <td>{{inventarioest}}</td>
         <td>{{numInventario}}</td>
         <td>{{nomEquipo}}</td>
@@ -42,10 +42,10 @@
         <td>
           {{if ~inventarios_edit}}
           <form action="index.php" method="get">
-             <input type="hidden" name="page" value="mnt_inventario"/>
-              <input type="hidden" name="mode" value="UPD" />
-              <input type="hidden" name="id" value={{id}} />
-              <button type="submit" class="bg-success"><i class="fa-solid fa-pen-to-square fa-lg"></i></button>
+            <input type="hidden" name="page" value="mnt_inventario"/>
+            <input type="hidden" name="mode" value="UPD" />
+            <input type="hidden" name="id" value={{id}} />
+            <button type="submit" class="bg-success"><i class="fa-solid fa-pen-to-square fa-lg"></i></button>
           </form>
           {{endif ~inventarios_edit}} <br>
 
@@ -53,10 +53,10 @@
 
           {{if ~inventarios_delete}}
           <form action="index.php" method="get">
-             <input type="hidden" name="page" value="mnt_inventario"/>
-              <input type="hidden" name="mode" value="DEL" />
-              <input type="hidden" name="id" value={{id}} />
-              <button type="submit" class="bg-secondary"><i class="fa-solid fa-trash fa-lg"></i></button>
+            <input type="hidden" name="page" value="mnt_inventario"/>
+            <input type="hidden" name="mode" value="DEL" />
+            <input type="hidden" name="id" value={{id}} />
+            <button type="submit" class="bg-secondary"><i class="fa-solid fa-trash fa-lg"></i></button>
           </form>
           {{endif ~inventarios_delete}}
         </td>
@@ -65,12 +65,15 @@
     </tbody>
   </table>
 </section>
+
+
+
 <script>
-   document.addEventListener("DOMContentLoaded", function () {
-      document.getElementById("btnAdd").addEventListener("click", function (e) {
-        e.preventDefault();
-        e.stopPropagation();
-        window.location.assign("index.php?page=mnt_inventario&mode=INS&id=0");
-      });
+  document.addEventListener("DOMContentLoaded", function () {
+    document.getElementById("btnAdd").addEventListener("click", function (e) {
+      e.preventDefault();
+      e.stopPropagation();
+      window.location.assign("index.php?page=mnt_inventario&mode=INS&id=0");
     });
+  });
 </script>

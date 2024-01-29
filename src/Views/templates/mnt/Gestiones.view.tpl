@@ -1,7 +1,7 @@
 <h1>Gestiónes de Entradas y Salidas</h1>
-<section class="WWFilter">
+<section class="WWFilter"></section>
+
 <!--GESTIONES-->
-</section>
 <section class="WWList table-responsive">
   <table class="table table-striped table-hover tb-align">
     <thead>
@@ -25,17 +25,17 @@
 
     <tbody>
       {{foreach gestiones}}
-        <tr class="bg-white">
+      <tr class="bg-white">
         <td>{{gestioncod}}</td>
         <td>{{tipogestion}}</td>
         <td>{{invEquipoGestion}}</td>
         <td>
           <!--VISTA-->
-           {{if ~gestiones_view}}
+          {{if ~gestiones_view}}
           <a class="text-decoration-none text-success font-weight-boldl" 
-            href="index.php?page=Mnt_Gestion&mode=DSP&gestioncod={{gestioncod}}">{{nomEquipoGestion}}
-            {{endif ~gestiones_view}}
-            </a>
+          href="index.php?page=Mnt_Gestion&mode=DSP&gestioncod={{gestioncod}}">{{nomEquipoGestion}}
+          {{endif ~gestiones_view}}
+          </a>
         </td>
         <td>{{descripcionGestion}}</td>
         <td>{{filialGestion}}</td>
@@ -46,38 +46,40 @@
 
         <td>
           <!--EDITAR-->
-        {{if ~gestiones_edit}}
-          <form action="index.php" method="get">
-             <input type="hidden" name="page" value="mnt_gestion"/>
+          {{if ~gestiones_edit}}
+            <form action="index.php" method="get">
+              <input type="hidden" name="page" value="mnt_gestion"/>
               <input type="hidden" name="mode" value="UPD" />
               <input type="hidden" name="gestioncod" value={{gestioncod}} />
               <button type="submit" class="bg-success"><i class="fa-solid fa-pen-to-square fa-lg"></i></button>
-          </form>
-        {{endif ~gestiones_edit}}
+            </form>
+          {{endif ~gestiones_edit}}
 
 
           <!--ELIMINAR-->
-        {{if ~gestiones_delete}}
+          {{if ~gestiones_delete}}
           <form action="index.php" method="get">
-             <input type="hidden" name="page" value="mnt_gestion"/>
-              <input type="hidden" name="mode" value="DEL" />
-              <input type="hidden" name="gestioncod" value={{gestioncod}} />
-              <button type="submit" class="bg-secondary"><i class="fa-solid fa-trash fa-lg"></i></button>
+            <input type="hidden" name="page" value="mnt_gestion"/>
+            <input type="hidden" name="mode" value="DEL" />
+            <input type="hidden" name="gestioncod" value={{gestioncod}} />
+            <button type="submit" class="bg-secondary"><i class="fa-solid fa-trash fa-lg"></i></button>
           </form>
-        {{endif ~gestiones_delete}}
+          {{endif ~gestiones_delete}}
         </td>
       </tr>
       {{endfor gestiones}}
-
     </tbody>
   </table>
 </section>
+
+
+
 <script>
-   document.addEventListener("DOMContentLoaded", function () {
-      document.getElementById("btnAdd").addEventListener("click", function (e) {
-        e.preventDefault();
-        e.stopPropagation();
-        window.location.assign("index.php?page=mnt_gestion&mode=INS&gestioncod=0");
-      });
+  document.addEventListener("DOMContentLoaded", function () {
+    document.getElementById("btnAdd").addEventListener("click", function (e) {
+      e.preventDefault();
+      e.stopPropagation();
+      window.location.assign("index.php?page=mnt_gestion&mode=INS&gestioncod=0");
+    });
     });
 </script>

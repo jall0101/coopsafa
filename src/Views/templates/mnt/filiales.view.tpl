@@ -1,7 +1,7 @@
 <h1>Gestión de Filiales</h1>
-<section class="WWFilter">
+<section class="WWFilter"></section>
+
 <!--FILIALES-->
-</section>
 <section class="WWList table-responsive">
   <table class="table table-striped table-hover tb-align">
     <thead>
@@ -19,44 +19,40 @@
 
     <tbody>
       {{foreach filiales}}
-        <tr class="bg-white">
-        <td>{{filialcod}}</td>
+      <tr class="bg-white">
+        <td>{{filialcod}}</td>  
         <td>
-
           <!--VISTA-->
-           {{if ~filiales_view}}
-          <a class="text-decoration-none text-success font-weight-boldl" 
-            href="index.php?page=Mnt_Filial&mode=DSP&filialcod={{filialcod}}">{{nombreFilial}}</a></td>
-           {{endif ~filiales_view}}
-           {{ifnot ~filiales_view}}
-            {{nombreFilial}}
-          {{endifnot ~filiales_view}}
+          {{if ~filiales_view}}
+            <a class="text-decoration-none text-success font-weight-boldl" 
+            href="index.php?page=Mnt_Filial&mode=DSP&filialcod={{filialcod}}">{{nombreFilial}}</a>
+        </td>
+        {{endif ~filiales_view}}
+
+        {{ifnot ~filiales_view}}
+          {{nombreFilial}}
+        {{endifnot ~filiales_view}}
+
         <td>
-
-
           <!--EDITAR-->
-        {{if ~filiales_edit}}
+          {{if ~filiales_edit}}
           <form action="index.php" method="get">
-             <input type="hidden" name="page" value="Mnt_Filial"/>
-              <input type="hidden" name="mode" value="UPD" />
-              <input type="hidden" name="filialcod" value={{filialcod}} />
-              <button type="submit" class="bg-success"><i class="fa-solid fa-pen-to-square fa-lg"></i></button>
+            <input type="hidden" name="page" value="Mnt_Filial"/>
+            <input type="hidden" name="mode" value="UPD" />
+            <input type="hidden" name="filialcod" value={{filialcod}} />
+            <button type="submit" class="bg-success"><i class="fa-solid fa-pen-to-square fa-lg"></i></button>
           </form>
           {{endif ~filiales_edit}}
-
 
           <!--ELIMINAR-->
           {{if ~filiales_delete}}
           <form action="index.php" method="get">
-             <input type="hidden" name="page" value="Mnt_Filial"/>
-              <input type="hidden" name="mode" value="DEL" />
-              <input type="hidden" name="filialcod" value={{filialcod}} />
-              <button type="submit" class="bg-secondary"><i class="fa-solid fa-trash fa-lg"></i></button>
+            <input type="hidden" name="page" value="Mnt_Filial"/>
+            <input type="hidden" name="mode" value="DEL" />
+            <input type="hidden" name="filialcod" value={{filialcod}} />
+            <button type="submit" class="bg-secondary"><i class="fa-solid fa-trash fa-lg"></i></button>
           </form>
           {{endif ~filiales_delete}}
-
-
-
         </td>
       </tr>
       {{endfor filiales}}
@@ -65,11 +61,11 @@
   </table>
 </section>
 <script>
-   document.addEventListener("DOMContentLoaded", function () {
-      document.getElementById("btnAdd").addEventListener("click", function (e) {
-        e.preventDefault();
-        e.stopPropagation();
-        window.location.assign("index.php?page=mnt_filial&mode=INS&filialcod=0");
-      });
+  document.addEventListener("DOMContentLoaded", function () {
+    document.getElementById("btnAdd").addEventListener("click", function (e) {
+      e.preventDefault();
+      e.stopPropagation();
+      window.location.assign("index.php?page=mnt_filial&mode=INS&filialcod=0");
     });
+  });
 </script>
