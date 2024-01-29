@@ -1,8 +1,10 @@
 <?php
-namespace Controllers\About;
 
+
+namespace Controllers\About;
 use Controllers\PublicController;
 use Views\Renderer;
+
 class About extends PublicController{
     public function run() :void
     {
@@ -13,5 +15,4 @@ class About extends PublicController{
         Renderer::render("about/about", $viewData);
     }
 }
-
 ?>

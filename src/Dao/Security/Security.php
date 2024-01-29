@@ -6,21 +6,6 @@ if (version_compare(phpversion(), '7.4.0', '<')) {
 } else {
     define('PASSWORD_ALGORITHM', '2y');  //BCRYPT
 }
-/*
-usercod     bigint(10) AI PK
-useremail   varchar(80)
-username    varchar(80)
-userpswd    varchar(128)
-userfching  datetime
-userpswdest char(3)
-userpswdexp datetime
-userest     char(3)
-useractcod  varchar(128)
-userpswdchg varchar(128)
-usertipo    char(3)
-
- */
-
 use Exception;
 
 class Security extends \Dao\Table

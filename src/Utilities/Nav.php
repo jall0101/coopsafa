@@ -52,6 +52,8 @@ class Nav {
 
 
         //NAVEGACIÓN TIPO 3
+
+        //NAVEGACIÓN DE INVENTARIOS
         if (\Utilities\Security::isAuthorized($userID, "Menu_MntInventarios")) {
             $tmpNAVIGATION3[] = array(
                 "nav_url" => "index.php?page=mnt_inventarios",

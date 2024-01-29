@@ -1,7 +1,6 @@
 <?php
 
 namespace Controllers\clientView;
-
 use Controllers\PublicController;
 use Views\Renderer;
 

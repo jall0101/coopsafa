@@ -63,14 +63,10 @@ class Login extends \Controllers\PublicController
                             );
                         } else {
                             try{
-                                
-                                
                                 \Utilities\Site::redirectToWithMsg("index.php", "INICIO DE SESIÓN CORRECTO");
-
                             }
                             catch (Exception $error){
                                 \Utilities\Site::redirectToWithMsg("index.php", "ERROR, BUSCAR ERROR");
-
                             }
                             
                         }
