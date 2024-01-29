@@ -45,13 +45,17 @@ class Filiales extends Table{
         );
         return $rowsDeleted;
     }
+
+    
+
     public static function findAll(){
         $sqlstr = "SELECT * from filiales;";
         return self::obtenerRegistros($sqlstr, array());
     }
-    public static function findByFilter(){
 
-    }
+
+
+
     public static function findById(int $filialcod){
         $sqlstr = "SELECT * from filiales where filialcod = :filialcod;";
         $row = self::obtenerUnRegistro(

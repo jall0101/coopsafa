@@ -1,4 +1,5 @@
 <?php
+
 namespace Dao\Mnt;
 use Dao\Table;
 class Departamentos extends Table{
@@ -49,8 +50,10 @@ class Departamentos extends Table{
         return self::obtenerRegistros($sqlstr, array());
     }
     public static function findByFilter(){
-
     }
+
+
+    
     public static function findById(int $departamentocod){
         $sqlstr = "SELECT * from departamentos where departamentocod = :departamentocod;";
         $row = self::obtenerUnRegistro(

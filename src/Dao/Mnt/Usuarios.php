@@ -1,21 +1,9 @@
 <?php
-namespace Dao\Mnt;
 
+
+namespace Dao\Mnt;
 use Dao\Table;
-/*`usercod` bigint(10) NOT NULL AUTO_INCREMENT,
-  `useremail` varchar(80) DEFAULT NULL,
-  `username` varchar(80) DEFAULT NULL,
-  `userpswd` varchar(128) DEFAULT NULL,
-  `userfching` datetime DEFAULT NULL,
-  `userpswdest` char(3) DEFAULT NULL,
-  `userpswdexp` datetime DEFAULT NULL,
-  `userest` char(3) DEFAULT NULL,
-  `useractcod` varchar(128) DEFAULT NULL,
-  `userpswdchg` varchar(128) DEFAULT NULL,
-  `usertipo` char(3) DEFAULT NULL COMMENT 'Tipo de Usuario, Normal, Consultor o Cliente',
-*/
 class Usuarios extends Table{
-    
     public static function insert(string $useremail, string $username, string $userpswd, string $userpswdest, string $userest, string $usertipo): int
     {
         $date = new \DateTime("now");
@@ -53,6 +41,7 @@ class Usuarios extends Table{
     }
 
 
+
     //ACTUALIZAR
     public static function update(int $usercod, 
             string $useremail, 
@@ -83,6 +72,8 @@ class Usuarios extends Table{
     }
 
 
+
+
     //BORRAR
     public static function delete(int $usercod){
         $sqlstr = "DELETE from usuario where usercod=:usercod;";
@@ -95,14 +86,14 @@ class Usuarios extends Table{
         return $rowsDeleted;
     }
 
+
+
     //BUSCAR TODO
     public static function findAll(){
         $sqlstr = "SELECT * from usuario;";
         return self::obtenerRegistros($sqlstr, array());
     }
-    public static function findByFilter(){
 
-    }
 
     public static function findLast(){
         $sqlstr = "SELECT usercod FROM usuario  order by usercod desc LIMIT 1 ;";
@@ -113,6 +104,8 @@ class Usuarios extends Table{
         return $row;
     }
 
+
+    
     public static function findById(int $usercod){
         $sqlstr = "SELECT * from usuario where usercod = :usercod;";
         $row = self::obtenerUnRegistro(

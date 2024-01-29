@@ -1,9 +1,8 @@
 <?php
+
 namespace Dao\Mnt;
 use Dao\Table;
-
 class FuncionesRoles extends Table{
-    
     public static function insert(string $rolescod ,string $fncod, string $fnrolest="ACT", string $fnexp): int
     {
         $dateTime = new \DateTime("now", new \DateTimeZone("UTC"));
@@ -23,6 +22,7 @@ class FuncionesRoles extends Table{
     }
 
 
+
     public static function update(string $rolescod ,string $fncod, string $fnrolest, string $fnexp){
         $sqlstr = "UPDATE funciones_roles set fncod = :fncod, fnrolest = :fnrolest, fnexp = :fnexp where rolescod=:rolescod and fncod=:fncod;";
         $rowsUpdated = self::executeNonQuery(
@@ -37,6 +37,8 @@ class FuncionesRoles extends Table{
         return $rowsUpdated;
     }
 
+
+
     public static function delete(string $rolescod, string $fncod){
         $sqlstr = "DELETE from funciones_roles where rolescod = :rolescod and fncod=:fncod;";
         $rowsDeleted = self::executeNonQuery(
@@ -48,10 +50,18 @@ class FuncionesRoles extends Table{
         );
         return $rowsDeleted;
     }
+
+
+
+
     public static function findAll(){
         $sqlstr = "SELECT * from funciones_roles;";
         return self::obtenerRegistros($sqlstr, array());
     }
+
+
+
+
     public static function findById(string $rolescod, string $fncod){
         $sqlstr = "SELECT * from funciones_roles where rolescod = :rolescod and fncod=:fncod;";
         $row = self::obtenerUnRegistro(

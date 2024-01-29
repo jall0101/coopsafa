@@ -3,7 +3,6 @@ namespace Dao\Mnt;
 use Dao\Table;
 
 class Zapatos extends Table{
-    
     public static function insert(
             int $marcacod, 
             int $departamentocod, 
@@ -87,10 +86,12 @@ class Zapatos extends Table{
                 "descripcion" => $descripcion, 
                 "detalles" => $detalles, 
                 "nombrezapato" => $nombrezapato)
-
         );
         return $rowsUpdated;
     }
+
+
+
     public static function delete(int $zapatocod){
         $sqlstr = "DELETE from zapatos where zapatocod=:zapatocod;";
         $rowsDeleted = self::executeNonQuery(
@@ -101,6 +102,8 @@ class Zapatos extends Table{
         );
         return $rowsDeleted;
     }
+
+
 
 
     public static function findAll(){
@@ -121,6 +124,8 @@ class Zapatos extends Table{
         );
         return $row;
     }
+
+
 
     public static function findTopByDepartment(int $codValue ){
         $sqlstr = "SELECT * FROM zapatos WHERE departamentocod = :codValue limit 4";
@@ -148,6 +153,7 @@ class Zapatos extends Table{
         return $row;
     }
 
+
     public static function findByName(string $nombrezapato, int $departamentocod){
         $sqlstr = "SELECT * FROM zapatos where nombrezapato like '%".$nombrezapato."%' and departamentocod = :departamentocod;";
         $row = self::obtenerRegistros(
@@ -172,6 +178,8 @@ class Zapatos extends Table{
         return $row;
     }
 
+    
+
     public static function findByRelated(int $codValue, int $departcod , int $zapatocod){
         $sqlstr = "SELECT * FROM zapatos where marcacod = :marcacod and departamentocod = :departamentocod and zapatocod <> :zapatocod limit 3 ;";
         $row = self::obtenerRegistros(
@@ -185,6 +193,7 @@ class Zapatos extends Table{
         );
         return $row;
     }
+
 
 
     public static function findSizes(int $codValue ){

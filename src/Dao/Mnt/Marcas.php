@@ -1,8 +1,8 @@
 <?php
+
 namespace Dao\Mnt;
 use Dao\Table;
 class Marcas extends Table{
-
     //CONSULTA PARA INSERTAR EN TABLA DE MARCAS
     public static function insert(string $nombremarca): int
     {
@@ -13,6 +13,8 @@ class Marcas extends Table{
         );
         return $rowsInserted;
     }
+
+
 
     //CONSULTA PARA ACTUALIZAR EN TABLA DE MARCAS
     public static function update(
@@ -33,6 +35,8 @@ class Marcas extends Table{
     }
 
 
+
+
     //CONSULTA PARA BORRAR EN TABLA DE MARCAS
     public static function delete(int $marcacod){
         $sqlstr = "DELETE from marcas where marcacod = :marcacod;";
@@ -45,6 +49,7 @@ class Marcas extends Table{
         return $rowsDeleted;
     }
 
+    
 
     //CONSULTA PARA BUSCAR TODO EN TABLA DE MARCAS
     public static function findAll(){

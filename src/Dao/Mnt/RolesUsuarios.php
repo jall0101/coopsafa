@@ -1,19 +1,9 @@
 <?php
+
+
 namespace Dao\Mnt;
-
-/*
-CREATE TABLE `roles_usuarios` (
-  `usercod` bigint(10) NOT NULL,
-  `rolescod` varchar(15) NOT NULL,
-  `roleuserest` char(3) DEFAULT NULL,
-  `roleuserfch` datetime DEFAULT NULL,
-  `roleuserexp` datetime DEFAULT NULL,
-*/
 use Dao\Table;
-
-
 class RolesUsuarios extends Table{
-    
     public static function insert(int $usercod ,string $rolescod ,string $roleuserest, string $roleuserexp): int
     {
         $date = new \DateTime("now");
@@ -37,6 +27,10 @@ class RolesUsuarios extends Table{
         );
         return $rowsInserted;
     }
+
+
+
+
     public static function update(int $usercod ,string $rolescod ,string $roleuserest, string $roleuserexp){
         $sqlstr = "UPDATE `roles_usuarios`
         SET
@@ -53,6 +47,10 @@ class RolesUsuarios extends Table{
         );
         return $rowsUpdated;
     }
+
+
+
+
     public static function delete(int $usercod,  string $rolescod){
         $sqlstr = "DELETE from roles_usuarios where `usercod` = :usercod AND `rolescod` = :rolescod;";
         $rowsDeleted = self::executeNonQuery(
@@ -64,13 +62,17 @@ class RolesUsuarios extends Table{
         );
         return $rowsDeleted;
     }
+
+
+
     public static function findAll(){
         $sqlstr = "SELECT * from roles_usuarios;";
         return self::obtenerRegistros($sqlstr, array());
     }
-    public static function findByFilter(){
 
-    }
+
+
+
     public static function findById(int $usercod, string $rolescod){
         $sqlstr = "SELECT * from roles_usuarios where `usercod` = :usercod AND `rolescod` = :rolescod;";
         $row = self::obtenerUnRegistro(

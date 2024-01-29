@@ -1,10 +1,9 @@
 <?php
+
 namespace Dao\Mnt;
 use Dao\Table;
 
 class Inventarios extends Table{
-    
-
     //FUNCIÓN PARA INGRESAR EQUIPOS AL IVENTARIO
     public static function insert(
             string $inventarioest="ACT",
@@ -43,6 +42,7 @@ class Inventarios extends Table{
 
 
 
+
     //FUNCION PARA ACTUALIZAR DATOS DEL INVENTARIO
     public static function update(
                 int $id,
@@ -75,6 +75,8 @@ class Inventarios extends Table{
     }
 
 
+
+
     //FUNCION PARA ELIMINAR DATOS DEL INVENTARIO
     public static function delete(int $id){
         $sqlstr = "DELETE from inventarios where id=:id;";
@@ -88,10 +90,14 @@ class Inventarios extends Table{
     }
 
 
+
+
     public static function findAll(){
         $sqlstr = "SELECT * from inventarios;";
         return self::obtenerRegistros($sqlstr, array());
     }
+
+
 
     public static function findByInventario(string $numInventario ){
         $sqlstr = "SELECT * FROM inventarios WHERE numInventario = :numInventario;";
@@ -106,8 +112,7 @@ class Inventarios extends Table{
     }
 
 
-
-
+    
     public static function findByInvCate(string $numInventario, string $categoriaEquipo ){
         $sqlstr = "SELECT * FROM inventarios WHERE numInventario = :numInventario and categoriaEquipo = :categoriaEquipo";
         $row = self::obtenerRegistros(

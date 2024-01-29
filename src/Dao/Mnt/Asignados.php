@@ -51,6 +51,7 @@ class Asignados extends Table{
         return $rowsDeleted;
     }
 
+    
     //BUSCAR TODO
     public static function findAll(){
         $sqlstr = "SELECT * from asignados;";

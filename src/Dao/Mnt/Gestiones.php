@@ -1,8 +1,8 @@
 <?php
+
 namespace Dao\Mnt;
 use Dao\Table;
 class Gestiones extends Table{
-
     //INSERT EN TABLA DE GESTIONES
     public static function insert(string $tipogestion, 
             string $invEquipoGestion, 
@@ -41,6 +41,7 @@ class Gestiones extends Table{
     }
 
 
+
     //UPDATE EN TABLA DE FILIALES
     public static function update(
         int $gestioncod,
@@ -77,8 +78,9 @@ class Gestiones extends Table{
     }
 
 
+
      //FUNCION PARA ELIMINAR EN LA TABLA DE gestiones
-     public static function delete(int $gestioncod){
+    public static function delete(int $gestioncod){
         $sqlstr = "DELETE from gestiones where gestioncod=:gestioncod;";
         $rowsDeleted = self::executeNonQuery(
             $sqlstr,
@@ -127,6 +129,7 @@ class Gestiones extends Table{
         return $row;
     }
 
+
     //BUSCAR POR INVENTARIO
     public static function findByInventario(string $invEquipoGestion){
         $sqlstr = "SELECT * FROM gestiones WHERE invEquipoGestion = :invEquipoGestion;";
@@ -140,8 +143,10 @@ class Gestiones extends Table{
         return $row;
     }
 
+
+
      //BUSCAR POR asignado
-     public static function findByAsignado(string $asigGestion){
+    public static function findByAsignado(string $asigGestion){
         $sqlstr = "SELECT * FROM gestiones WHERE asigGestion = :asigGestion;";
         $row = self::obtenerRegistros(
             $sqlstr,
@@ -152,6 +157,8 @@ class Gestiones extends Table{
         );
         return $row;
     }
+
+    
 
     //BUSQUEDA POR ID DE INGRESO
     public static function findById(int $gestioncod){
