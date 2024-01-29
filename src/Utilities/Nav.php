@@ -61,7 +61,7 @@ class Nav {
             );
         }
 
-
+        //NAVEGACIÓN DE GESTIONES O ENTRADAS Y SALIDAS
         if (\Utilities\Security::isAuthorized($userID, "Menu_MntGestiones")) {
             $tmpNAVIGATION3[] = array(
                 "nav_url" => "index.php?page=mnt_gestiones",
@@ -70,6 +70,7 @@ class Nav {
         }
 
 
+        //NAVEGACIÓN DE MARCAS
         if (\Utilities\Security::isAuthorized($userID, "Menu_MntMarcas")) {
             $tmpNAVIGATION3[] = array(
                 "nav_url" => "index.php?page=mnt_marcas",
@@ -77,6 +78,8 @@ class Nav {
             );
         }
 
+
+        //NAVEGACIÓN DE USUARIOS ASIGNADOS
         if (\Utilities\Security::isAuthorized($userID, "Menu_MntAsignados")) {
             $tmpNAVIGATION3[] = array(
                 "nav_url" => "index.php?page=mnt_asignados",
@@ -85,6 +88,7 @@ class Nav {
         }
 
 
+        //NAVEGACIÓN DE FILIALES
         if (\Utilities\Security::isAuthorized($userID, "Menu_MntFiliales")) {
             $tmpNAVIGATION3[] = array(
                 "nav_url" => "index.php?page=mnt_filiales",
@@ -92,12 +96,15 @@ class Nav {
             );
         }
 
+
+        //NAVEGACIÓN DE DEPARTAMENTOS
         if (\Utilities\Security::isAuthorized($userID, "Menu_MntDepartamentos")) {
             $tmpNAVIGATION3[] = array(
                 "nav_url" => "index.php?page=mnt_departamentos",
                 "nav_label" => "Departamentos"
             );
         }
+        //NAVEGACINES DEL SISTEMA
         \Utilities\Context::setContext("NAVIGATION", $tmpNAVIGATION);
         \Utilities\Context::setContext("NAVIGATION2", $tmpNAVIGATION2);
         \Utilities\Context::setContext("NAVIGATION3", $tmpNAVIGATION3);

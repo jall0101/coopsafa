@@ -1,5 +1,4 @@
 <?php
-
 namespace Controllers\Mnt;
 use Controllers\PrivateController;
 use Exception;
@@ -148,7 +147,7 @@ class Asignado extends PrivateController{
         }
     }
 
-
+    
     private function executeAction(){
         switch($this->viewData["mode"]){
             case "INS":

@@ -24,6 +24,8 @@
       </button>
       {{endif ~menu_inventarios}}
 
+      
+
       <!--ENTRADAS Y SALIDAS-->
       {{if ~menu_gestiones}}
       <button type="button" class="btn btn-outline-secondary p-5 col-md-3 offset-sm-1">
