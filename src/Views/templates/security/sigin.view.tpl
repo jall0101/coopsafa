@@ -52,7 +52,7 @@
         </ul>
       </section>
       {{endif hasErrors}}
-      <p>Creado por JALL©.<a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p>
+      <p>Creado por JALL©.<a href="#"></a></p>
   
       <div class="botones">
         <button id="btnSignin" type="submit" class="signupbtn">Crear Cuenta</button>
