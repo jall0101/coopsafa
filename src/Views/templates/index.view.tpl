@@ -19,12 +19,15 @@
     </div>
     <hr>
     <br>
+    <!--BOTON DE LA PÁGINA PRINCIPAL INICIAR SESION-->
     <div class="row justify-content-center">
         <a href="index.php?page=sec_login" class="text-dark m-4 button-index col-2">INICIAR SESIÓN</a>
     </div>
 
 </body>
 
+
+<!--SCRIPT DE BOOSTRAP DE LA PÁGINA PRINCIPAL-->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js" 
 integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N" crossorigin="anonymous"></script>
 </html>

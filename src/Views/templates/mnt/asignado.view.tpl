@@ -15,6 +15,7 @@
     </section>
 
 
+    <!--DEPARTAMENTO PARA ASIGNADO-->
     <section class="row">
       <label for="nombreDepartamento" class="col-4">Departamento</label>
       <input type="text" {{readonly}} name="nombreDepartamento" value="{{nombreDepartamento}}" maxlength="45" placeholder="Departamento"/>
@@ -23,7 +24,8 @@
       {{endif nombreDepartamento_error}}
     </section>
     
-    
+
+    <!--USUARIO ASGINADO-->
     <section class="row">
       <label for="nombreAsignado" class="col-4">Usuario Asignado</label>
       <input type="text" {{readonly}} name="nombreAsignado" value="{{nombreAsignado}}" maxlength="45" placeholder="Usuario Asignado"/>
@@ -45,6 +47,8 @@
     {{endif has_errors}}
 
 
+
+    <!--BOTONES PARA GURDAR O CANCELAR ASIGNADO-->
     <section>
       {{if show_action}}
       <button type="submit" name="btnGuardar" value="G">Guardar</button>
@@ -54,7 +58,7 @@
   </form>
 </section>
 
-
+<!--EVENTOS PARA REFERENCIAR RUTA Y PARA EL BOTON CANCELAR-->
 <script>
   document.addEventListener("DOMContentLoaded", function(){
       document.getElementById("btnCancelar").addEventListener("click", function(e){

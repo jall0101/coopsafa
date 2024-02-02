@@ -1,7 +1,10 @@
-<!--**************************************************-->
-<!--ESTA ES LA PÁGINA DE INICIO DEL PROGRAMA-->
-<!--**************************************************-->
+<!--***********************************************************-->
+<!--ESTA ES LA PÁGINA DE INICIO DEL PROGRAMA PARA ADMINISTRADOR-->
+<!--***********************************************************-->
 
+
+
+  <!--APARTADO DE EQUIPOS-->
 <div class="container-fluid">
   <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
     <ol class="breadcrumb m-4">
@@ -9,6 +12,7 @@
       <li class="breadcrumb-item active" aria-current="page">Equipos </li>
     </ol>
   </nav>
+  <!--TITULO DEL APARTADO DE EQUIPOS-->
   <h1 class="m-4">EQUIPOS</h1>
   
 
@@ -78,7 +82,7 @@
   </div>
 </div>
 
-
+  <!--APARTADO DE SEGURIDAD Y PERMISOS-->
 <div class="container-fluid">
   <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
     <ol class="breadcrumb m-4">
@@ -88,6 +92,7 @@
   </nav>
 
   
+  <!--TITULO DEL APARTADO DE EQUIPOS-->
   <h1 class="m-4">SEGURIDAD Y PERMISOS</h1>
   
   <div class="container-fluid">
